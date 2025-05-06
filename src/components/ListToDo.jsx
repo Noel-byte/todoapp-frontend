@@ -95,8 +95,8 @@ export const ListToDo = ({ todos, fetchData }) => {
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center   text-white text-sm sm:text-base mb-2 p-2 sm:p-4 rounded shadow
-              ${todo.completed ? 'bg-green-600' : 'bg-stone-600'} space-y-2 sm:space-y-0`}
+          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-white text-sm sm:text-base mb-2 p-3 sm:p-4 rounded shadow space-y-2 sm:space-y-0
+            ${todo.completed ? 'bg-green-600' : 'bg-stone-600'}`}
         >
           {editNoteId === todo._id ? (
             <input
@@ -108,18 +108,18 @@ export const ListToDo = ({ todos, fetchData }) => {
                   [todo._id]: e.target.value,
                 }))
               }
-              className=" w-full rounded  p-2 mr-1 bg-black "
+              className="w-full rounded p-2 bg-black text-white"
             />
           ) : (
-            <span>{todo.text}</span>
+            <span className="break-words w-full sm:w-auto">{todo.text}</span>
           )}
           {!todo.completed ? (
-            <div className=" flex gap-2">
+            <div className="flex gap-2 flex-wrap sm:flex-nowrap items-center">
               <img
                 onClick={() => handleDelete(todo._id)}
                 src={del}
                 alt="delete icon"
-                className=" w-8 h-8  object-cover rounded hover:cursor-pointer"
+               className="w-8 h-8 object-cover rounded hover:cursor-pointer"
               />
 
               {editNoteId === todo._id ? (
@@ -127,7 +127,7 @@ export const ListToDo = ({ todos, fetchData }) => {
                   onClick={() => handleEdit(todo._id)}
                   src={save}
                   alt="save icon"
-                  className=" w-8 h-8  object-cover rounded hover:cursor-pointer"
+                 className="w-8 h-8 object-cover rounded hover:cursor-pointer"
                 />
               ) : (
                 <img
@@ -143,11 +143,11 @@ export const ListToDo = ({ todos, fetchData }) => {
                 id=""
                 onChange={(e) => handleCheckbox(e, todo._id)}
                 checked={checkedItems[todo._id] || false}
-                className=" hover:cursor-pointer"
+               className="w-5 h-5 hover:cursor-pointer"
               />
             </div>
           ) : (
-            <img src={done} className="w-6" alt="done icon" />
+            <img src={done} className="w-6 h-6" alt="done icon" />
           )}
         </div>
       ))}
