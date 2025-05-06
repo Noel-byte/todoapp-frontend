@@ -114,7 +114,7 @@ export const ListToDo = ({ todos, fetchData }) => {
             <span className="break-words w-full sm:w-auto">{todo.text}</span>
           )}
           {!todo.completed ? (
-            <div className="flex gap-2 flex-wrap sm:flex-nowrap items-center">
+            <div className="flex mt-2 gap-2 justify-around flex-wrap sm:flex-nowrap items-center">
               <img
                 onClick={() => handleDelete(todo._id)}
                 src={del}
