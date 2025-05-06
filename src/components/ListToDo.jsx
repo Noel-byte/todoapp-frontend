@@ -96,8 +96,8 @@ export const ListToDo = ({ todos, fetchData }) => {
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex justify-between items-center text-white  mb-2 p-2 rounded shadow  
-              ${todo.completed ? 'bg-green-600' : 'bg-stone-600'}`}
+          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center   text-white text-sm sm:text-base mb-2 p-2 sm:p-4 rounded shadow
+              ${todo.completed ? 'bg-green-600' : 'bg-stone-600'} space-y-2 sm:space-y-0`}
         >
           {editNoteId === todo._id ? (
             <input
