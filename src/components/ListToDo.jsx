@@ -80,14 +80,14 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   return (
     <div className=" mt-3  px-8 py-3 bg-blue-400">
-      <h2 className=" text-2xl font-semibold text-center flex justify-between items-center  pb-2">
-        <span>ToDo List (mark the checkbox if task complete) </span>{' '}
+      <h2 className="text-xl sm:text-2xl font-semibold text-center flex flex-col sm:flex-row justify-between items-center gap-2 pb-2">
+        <span className="text-center">ToDo List (mark the checkbox if task complete) </span>
         <FilterTasks fetchData={fetchData} />{' '}
-        <span className=" ml-2.5 rounded bg-red-400">
+        <span className="ml-0 sm:ml-2.5 rounded bg-red-400">
           <img
             src={clear}
             alt="clear icon"
-            className=" w-10 h-10 object-cover rounded hover:cursor-pointer"
+            className="w-8 h-8 sm:w-10 sm:h-10 object-cover rounded hover:cursor-pointer"
             onClick={clearAllTasks}
           />
         </span>
