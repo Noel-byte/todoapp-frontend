@@ -34,7 +34,7 @@ export const AddToDo = ({todos,fetchData}) => {
             <h2 className="text-center text-xl sm:text-2xl text-stone-50">Add todos below</h2>
 
             <div className="w-full flex flex-col sm:flex-row items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-2">
-            <input type="text" name="todoname" id="todoname" placeholder='Enter todo here' className="bg-stone-50 p-2 rounded w-full sm:w-auto" value={todo} onChange={(e)=>setToDo(e.target.value)}/>
+            <input type="text" name="todoname" id="todoname" placeholder='Enter todo here' className="bg-stone-50 p-2 rounded w-full" value={todo} onChange={(e)=>setToDo(e.target.value)}/>
             </div>
             
             <button className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600" type='submit'>AddToDo</button>
