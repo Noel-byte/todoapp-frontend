@@ -1,45 +1,33 @@
-# --- Node / Express backend ---
+# Node modules
 node_modules/
+
+# Build output
+build/
+
+# React-specific files
+.env
+.env.local
+.env.*.local
+
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-dist/
-build/
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-pids
-*.pid
-*.seed
-*.pid.lock
-coverage/
-.eslintcache
-.npm
-node_repl_history
 
-# --- React frontend ---
-/frontend/node_modules/
-frontend/.env
-frontend/.env.local
-frontend/.env.development.local
-frontend/.env.test.local
-frontend/.env.production.local
-frontend/build/
-frontend/.eslintcache
+# OS-specific files
+.DS_Store        # macOS
+Thumbs.db        # Windows
 
-# --- Logs ---
-logs
-*.log
-
-# --- OS / IDE ---
-.DS_Store
-Thumbs.db
+# IDE / Editor folders
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+
+# npm package lock file (optional)
+package-lock.json
+yarn.lock
+
+# Coverage directory used by testing tools
+coverage/
+
+# TypeScript build (if applicable)
+*.tsbuildinfo
