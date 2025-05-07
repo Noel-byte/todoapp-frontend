@@ -1,5 +1,6 @@
 import { Header } from "./components/Header"
 import { AddToDo } from "./components/AddToDo"
+import Footer from "./components/Footer"
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 function App() {
@@ -26,6 +27,7 @@ function App() {
     <>
      <Header message={message}/>
     <AddToDo todos={todos} fetchData={fetchData}/>
+    <Footer/>
     </>
   )
 }
