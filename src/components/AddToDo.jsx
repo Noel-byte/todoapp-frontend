@@ -14,7 +14,8 @@ export const AddToDo = ({todos,fetchData}) => {
                   e.preventDefault()
                   if(todo.trim()==='')return;
 
-                  const token = localStorage.getItem('token');
+                  // const token = localStorage.getItem('token');
+                  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWQ1MmIzOTA1ODE4MjIyM2IxMDY3ZiIsImlhdCI6MTc0Njc1NDExMCwiZXhwIjoxNzQ5MzQ2MTEwfQ.wnISL3FIVAsuWrzK3GJHs0k__V-fz58wYHWgF5_zZfI"
 
                   //add it to the database
                   axios.post('https://todoapp-backend-900w.onrender.com/api/todos', {text:todo},{
