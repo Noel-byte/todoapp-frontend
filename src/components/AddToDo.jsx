@@ -14,8 +14,14 @@ export const AddToDo = ({todos,fetchData}) => {
                   e.preventDefault()
                   if(todo.trim()==='')return;
 
+                  const token = localStorage.getItem('token');
+
                   //add it to the database
-                  axios.post('https://todoapp-backend-900w.onrender.com/api/todos', {text:todo})
+                  axios.post('https://todoapp-backend-900w.onrender.com/api/todos', {text:todo},{
+                    headers:{
+                     Authorization:`Bearer ${token}`
+                    }
+                  })
                   .then(response=>console.log('Todo added',response))
                   .catch(error=>console.error('Error',error))
 
