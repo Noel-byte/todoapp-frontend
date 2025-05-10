@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 export const Register = () => {
 
@@ -11,7 +12,7 @@ export const Register = () => {
 
     const handleRegister = (e)=>{
          e.preventDefault();
-         axios.post('https://todoapp-backend-900w.onrender.com/api/users/register',{email,password})
+         axios.post('https://todoapp-backend-900w.onrender.com/api/users',{email,password})
          .then(()=>{
             navigate('/login') // go to login aftger register
          })
