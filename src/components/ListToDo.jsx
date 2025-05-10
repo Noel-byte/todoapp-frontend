@@ -106,6 +106,7 @@ export const ListToDo = ({ todos, fetchData }) => {
             className="w-8 h-8 sm:w-10 sm:h-10 object-cover rounded hover:cursor-pointer"
             onClick={()=>clearAllTasks(todos.user)}
           />
+          {todos.user}
         </span>
       </h2>
 
