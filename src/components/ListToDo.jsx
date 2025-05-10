@@ -12,7 +12,7 @@ export const ListToDo = ({ todos, fetchData }) => {
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
   const token = localStorage.getItem('token');
-  console.log(todos);
+  alert("this is todos userid",todos.user);
   const handleDelete = (id) => {
     //delete an item with a specific id from the database
     axios
