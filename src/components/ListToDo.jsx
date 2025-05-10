@@ -109,7 +109,7 @@ export const ListToDo = ({ todos, fetchData }) => {
     <div className=" mt-3  px-8 py-3 bg-blue-400">
       <div className=" flex justify-between">
         <FilterTasks fetchData={fetchData} />
-        {todos.llength > 0 && (
+        {todos.length > 0 && (
           <button
             className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
             onClick={() => clearAllTasks(todos[0]?.user)}
