@@ -4,7 +4,6 @@ import done from '../assets/done.png';
 import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
 import save from '../assets/save.png';
-import clear from '../assets/clear.png';
 import { FilterTasks } from './FilterTasks';
 
 export const ListToDo = ({ todos, fetchData }) => {
