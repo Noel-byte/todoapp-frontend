@@ -12,7 +12,7 @@ export const ListToDo = ({ todos, fetchData }) => {
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
   const token = localStorage.getItem('token');
-  alert("this is todos userid",todos.user);
+
   const handleDelete = (id) => {
     //delete an item with a specific id from the database
     axios
@@ -88,6 +88,8 @@ export const ListToDo = ({ todos, fetchData }) => {
   };
 
   const clearAllTasks = (userid) => {
+    console.log("User info:", todos.user);
+
     axios
       .delete(
         `https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,
