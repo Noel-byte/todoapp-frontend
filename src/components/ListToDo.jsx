@@ -114,7 +114,7 @@ export const ListToDo = ({ todos, fetchData }) => {
         <FilterTasks fetchData={fetchData} />
         <span className="ml-0 sm:ml-2.5 rounded bg-red-400">
           <button
-            className="sm:w-10 sm:h-10 object-cover rounded hover:cursor-pointer"
+             className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
             onClick={() => clearAllTasks(todos.user)}
           >Clear All Tasks</button>
         </span>
