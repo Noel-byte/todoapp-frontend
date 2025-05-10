@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Login = ({ setIsAuthenticated }) => {
+export const Login = ({ setIsAuthenticated ,fetchData}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error,setError] = useState('')
@@ -21,6 +21,7 @@ export const Login = ({ setIsAuthenticated }) => {
     
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
+        fetchData('all')
         navigate('/todos'); // redirect to AddTodo page
       })
       .catch((err) => {

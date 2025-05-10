@@ -23,19 +23,22 @@ function App() {
 
   const fetchData = async (status = '') => {
     try {
-      const token = localStorage.getItem('token')
-      console.log('this token',token)
-      if(!token){
-        console.warn('No token found, skipping fetchData')
+      const token = localStorage.getItem('token');
+      console.log('this token', token);
+      if (!token) {
+        console.warn('No token found, skipping fetchData');
         return; //skip if not logged in
       }
-      const welcomeRes = await axios.get('https://todoapp-backend-900w.onrender.com/');
+      const welcomeRes = await axios.get(
+        'https://todoapp-backend-900w.onrender.com/'
+      );
       const todosRes = await axios.get(
-        `https://todoapp-backend-900w.onrender.com/api/todos/${status}`,{
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-}
+        `https://todoapp-backend-900w.onrender.com/api/todos/${status}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       setMessage(welcomeRes.data);
       setTodos(todosRes.data);
@@ -45,8 +48,10 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData('all');
-  }, []);
+    if (isAuthenticated) {
+      fetchData('all');
+    }
+  }, [isAuthenticated]);
 
   return (
     <Router>
@@ -54,7 +59,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route
           path="/login"
-          element={<Login setIsAuthenticated={setIsAuthenticated} />}
+          element={
+            <Login
+              setIsAuthenticated={setIsAuthenticated}
+              fetchData={fetchData}
+            />
+          }
         />
         <Route
           path="/todos"

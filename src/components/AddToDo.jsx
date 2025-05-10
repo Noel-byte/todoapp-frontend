@@ -11,13 +11,15 @@ export const AddToDo = ({ todos, fetchData }) => {
   // const [todos,setTodos] = useState([])
    const token = localStorage.getItem('token')
 
-   console.log('this is the token',token)
   const navigate = useNavigate()
 
   useEffect(()=>{
  
-    if(!token) navigate('/login')
+    if(!token) {navigate('/login')}
+
   },[navigate,token])
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
