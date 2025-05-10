@@ -87,8 +87,6 @@ export const ListToDo = ({ todos, fetchData }) => {
   };
 
   const clearAllTasks = (userid) => {
-    console.log("User info:", todos.user);
-
     axios
       .delete(
         `https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,
@@ -106,19 +104,20 @@ export const ListToDo = ({ todos, fetchData }) => {
         console.error(error);
       });
   };
-console.log("Todos at render:", todos);
 
   return (
     <div className=" mt-3  px-8 py-3 bg-blue-400">
-      <>
+      <div className=" flex justify-between">
         <FilterTasks fetchData={fetchData} />
-
+        {todos.llength > 0 && (
           <button
-             className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
+            className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
             onClick={() => clearAllTasks(todos[0]?.user)}
-          >Clear All Tasks</button>
-
-      </>
+          >
+            Clear All Tasks
+          </button>
+        )}
+      </div>
 
       {todos.map((todo) => (
         <div
