@@ -107,7 +107,7 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   return (
     <div className=" mt-3  px-8 py-3 bg-blue-400">
-      <div className=" flex justify-between py-2">
+      <div className=" flex justify-between sm:w-full py-2">
         <FilterTasks fetchData={fetchData} />
         {todos.length > 0 && (
           <button
