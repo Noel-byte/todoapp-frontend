@@ -11,17 +11,16 @@ export const ListToDo = ({ todos, fetchData }) => {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
- const token = localStorage.getItem('token')
-       console.log(todos)
+  const token = localStorage.getItem('token');
+  console.log(todos);
   const handleDelete = (id) => {
-    
     //delete an item with a specific id from the database
     axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`,{
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-})
+      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         alert('Deleted:' + JSON.stringify(response.data.message));
         //refresh the ui
@@ -38,13 +37,17 @@ export const ListToDo = ({ todos, fetchData }) => {
     if (editNoteId === id) {
       //handle save logic here
       axios
-        .put(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
-          text: editedItemsNote[id],
-        },{
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-})
+        .put(
+          `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
+          {
+            text: editedItemsNote[id],
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((response) => {
           alert('Saved' + JSON.stringify(response.data.message));
           fetchData('all');
@@ -65,13 +68,17 @@ export const ListToDo = ({ todos, fetchData }) => {
 
     //handle update logic
     axios
-      .put(`https://todoapp-backend-900w.onrender.com/api/todos/${todoid}`, {
-        completed: isChecked,
-      },{
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-})
+      .put(
+        `https://todoapp-backend-900w.onrender.com/api/todos/${todoid}`,
+        {
+          completed: isChecked,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then(() => {
         fetchData('all');
       })
@@ -82,11 +89,14 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   const clearAllTasks = (userid) => {
     axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todosuser//${userid}`,{
-  headers: {
-    Authorization: `Bearer ${token}`
-  }
-})
+      .delete(
+        `https://todoapp-backend-900w.onrender.com/api/todosuser//${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         fetchData('all'); // refresh your list
@@ -105,9 +115,8 @@ export const ListToDo = ({ todos, fetchData }) => {
             src={clear}
             alt="clear icon"
             className="w-8 h-8 sm:w-10 sm:h-10 object-cover rounded hover:cursor-pointer"
-            onClick={()=>clearAllTasks(todos.user._id)}
+            onClick={() => clearAllTasks(todos.user)}
           />
-          
         </span>
       </h2>
 
@@ -138,7 +147,7 @@ export const ListToDo = ({ todos, fetchData }) => {
                 onClick={() => handleDelete(todo._id)}
                 src={del}
                 alt="delete icon"
-               className="w-8 h-8 object-cover rounded hover:cursor-pointer"
+                className="w-8 h-8 object-cover rounded hover:cursor-pointer"
               />
 
               {editNoteId === todo._id ? (
@@ -146,7 +155,7 @@ export const ListToDo = ({ todos, fetchData }) => {
                   onClick={() => handleEdit(todo._id)}
                   src={save}
                   alt="save icon"
-                 className="w-8 h-8 object-cover rounded hover:cursor-pointer"
+                  className="w-8 h-8 object-cover rounded hover:cursor-pointer"
                 />
               ) : (
                 <img
@@ -162,7 +171,7 @@ export const ListToDo = ({ todos, fetchData }) => {
                 id=""
                 onChange={(e) => handleCheckbox(e, todo._id)}
                 checked={checkedItems[todo._id] || false}
-               className="w-5 h-5 hover:cursor-pointer"
+                className="w-5 h-5 hover:cursor-pointer"
               />
             </div>
           ) : (
