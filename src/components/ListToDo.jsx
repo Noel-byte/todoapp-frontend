@@ -115,7 +115,7 @@ console.log("Todos at render:", todos);
 
           <button
              className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
-            onClick={() => clearAllTasks(todos.user)}
+            onClick={() => clearAllTasks(todos[0]?.user)}
           >Clear All Tasks</button>
 
       </>
