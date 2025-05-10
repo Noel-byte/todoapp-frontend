@@ -108,7 +108,7 @@ export const ListToDo = ({ todos, fetchData }) => {
           />
           
         </span>
-        {todos.user?todos.user:"no id to display"}
+        {todos && todos.user?todos.user:"no id to display"}
       </h2>
 
       {todos.map((todo) => (
