@@ -6,9 +6,10 @@ import { useNavigate } from 'react-router-dom';
 export const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error,setError] = useState('')
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin =  (e) => {
     e.preventDefault();
     axios
       .post('https://todoapp-backend-900w.onrender.com/api/users/login', {
@@ -16,11 +17,24 @@ export const Login = ({ setIsAuthenticated }) => {
         password,
       })
       .then((response) => {
+
+    
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
         navigate('/todos'); // redirect to AddTodo page
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        if(err.response){
+          if(err.response.status===404){
+            setError("User not found. Redirecting to register...")
+            setTimeout(() => {
+              navigate("/register")
+            }, 1500);
+          }else{
+            setError("Network error or server is down")
+          }
+        }
+      });
   };
 
   return (
@@ -52,6 +66,7 @@ export const Login = ({ setIsAuthenticated }) => {
         >
           Login
         </button>
+        {error&& <p className=' text-red-600'>{error}</p>}
       </form>
     </div>
   );
