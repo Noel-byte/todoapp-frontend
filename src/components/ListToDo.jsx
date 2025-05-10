@@ -11,11 +11,16 @@ export const ListToDo = ({ todos, fetchData }) => {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
-
+ const token = localStorage.getItem('token')
   const handleDelete = (id) => {
+    
     //delete an item with a specific id from the database
     axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`)
+      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`,{
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
       .then((response) => {
         alert('Deleted:' + JSON.stringify(response.data.message));
         //refresh the ui
@@ -34,7 +39,11 @@ export const ListToDo = ({ todos, fetchData }) => {
       axios
         .put(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
           text: editedItemsNote[id],
-        })
+        },{
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
         .then((response) => {
           alert('Saved' + JSON.stringify(response.data.message));
           fetchData('all');
@@ -57,7 +66,11 @@ export const ListToDo = ({ todos, fetchData }) => {
     axios
       .put(`https://todoapp-backend-900w.onrender.com/api/todos/${todoid}`, {
         completed: isChecked,
-      })
+      },{
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
       .then(() => {
         fetchData('all');
       })
@@ -68,7 +81,11 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   const clearAllTasks = () => {
     axios
-      .delete('https://todoapp-backend-900w.onrender.com/api/todos/')
+      .delete('https://todoapp-backend-900w.onrender.com/api/todos/',{
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+})
       .then((response) => {
         console.log(response.data);
         fetchData('all'); // refresh your list

@@ -10,6 +10,8 @@ export const AddToDo = ({ todos, fetchData }) => {
   const [todo, setToDo] = useState('');
   // const [todos,setTodos] = useState([])
    const token = localStorage.getItem('token')
+
+   console.log('this is the token',token)
   const navigate = useNavigate()
 
   useEffect(()=>{
