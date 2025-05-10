@@ -72,7 +72,7 @@ function App() {
         />
         <Route
           path="/"
-          element={<Navigate to={isAuthenticated ? '/todos' : '/register'} />}
+          element={<Navigate to={isAuthenticated ? '/todos' : '/login'} />}
         />
       </Routes>
     </Router>
