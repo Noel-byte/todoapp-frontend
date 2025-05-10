@@ -107,18 +107,19 @@ export const ListToDo = ({ todos, fetchData }) => {
         console.error(error);
       });
   };
+console.log("Todos at render:", todos);
 
   return (
     <div className=" mt-3  px-8 py-3 bg-blue-400">
-      <h2 className="text-xl sm:text-2xl font-semibold text-center flex flex-col sm:flex-row justify-between items-center gap-2 pb-2">
+      <>
         <FilterTasks fetchData={fetchData} />
-        <span className="ml-0 sm:ml-2.5 rounded bg-red-400">
+
           <button
              className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
             onClick={() => clearAllTasks(todos.user)}
           >Clear All Tasks</button>
-        </span>
-      </h2>
+
+      </>
 
       {todos.map((todo) => (
         <div
