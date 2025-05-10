@@ -32,27 +32,29 @@ function App() {
     fetchData('all')
   },[])
 
-  return (
-    <Router>
-      <Routes>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated}/>}/>
-        <Route path='/todos'
-         element={
-           isAuthenticated ? <>
-     <Header message={message}/>
-    <AddToDo todos={todos} fetchData={fetchData}/>
-    <Footer/>
-    </>: <Navigate to="/login"/>
-         }
-        />
-        <Route path='/'
-         element={<Navigate to = {isAuthenticated?"/todos":"/login"}/>}
-        />
-      </Routes>
-    </Router>
-   
-  )
+return (
+  <Router>
+    <Routes>
+      <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+      <Route path='/todos'
+        element={
+          isAuthenticated ? (
+            <>
+              <Header message={message} />
+              <AddToDo todos={todos} fetchData={fetchData} />
+              <Footer />
+            </>
+          ) : (
+            <Navigate to="/login" />
+          )
+        }
+      />
+      <Route path='/' element={<Navigate to="/register" />} />
+    </Routes>
+  </Router>
+);
+
 }
 
 export default App
