@@ -13,7 +13,7 @@ function App() {
 
   useEffect(()=>{
     const token = localStorage.getItem('token')
-    setIsAuthenticated(token) //true if token exists
+    setIsAuthenticated(!!token) //true if token exists
   },[])
 
   const fetchData = async (status='')=>{
@@ -50,7 +50,8 @@ return (
           )
         }
       />
-      <Route path='/' element={<Navigate to="/register" />} />
+     <Route path="/" element={<Navigate to={isAuthenticated ? "/todos" : "/register"} />} />
+
     </Routes>
   </Router>
 );

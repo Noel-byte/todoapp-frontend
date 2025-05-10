@@ -11,7 +11,7 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post('https://todoapp-backend-900w.onrender.com/api/users/', {
+      .post('https://todoapp-backend-900w.onrender.com/api/users', {
         email,
         password,
       })
