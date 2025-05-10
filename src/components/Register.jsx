@@ -10,6 +10,8 @@ export const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    console.log('email:', email, 'password:', password);
+
     axios
       .post('https://todoapp-backend-900w.onrender.com/api/users', {
         email,
