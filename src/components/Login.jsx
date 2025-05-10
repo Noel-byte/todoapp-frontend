@@ -25,7 +25,7 @@ export const Login = ({ setIsAuthenticated }) => {
       })
       .catch((err) => {
         if(err.response){
-          if(err.response.status===404){
+          if(err.response.status===400){
             setError("User not found. Redirecting to register...")
             setTimeout(() => {
               navigate("/register")
