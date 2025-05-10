@@ -12,6 +12,7 @@ export const ListToDo = ({ todos, fetchData }) => {
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
  const token = localStorage.getItem('token')
+       console.log(todos)
   const handleDelete = (id) => {
     
     //delete an item with a specific id from the database
@@ -98,7 +99,7 @@ export const ListToDo = ({ todos, fetchData }) => {
   return (
     <div className=" mt-3  px-8 py-3 bg-blue-400">
       <h2 className="text-xl sm:text-2xl font-semibold text-center flex flex-col sm:flex-row justify-between items-center gap-2 pb-2">
-        <FilterTasks fetchData={fetchData} />{' '}
+        <FilterTasks fetchData={fetchData} />
         <span className="ml-0 sm:ml-2.5 rounded bg-red-400">
           <img
             src={clear}
