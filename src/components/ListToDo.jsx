@@ -82,7 +82,7 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   const clearAllTasks = (userid) => {
     axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${userid}`,{
+      .delete(`https://todoapp-backend-900w.onrender.com/api/todosuser//${userid}`,{
   headers: {
     Authorization: `Bearer ${token}`
   }
@@ -105,7 +105,7 @@ export const ListToDo = ({ todos, fetchData }) => {
             src={clear}
             alt="clear icon"
             className="w-8 h-8 sm:w-10 sm:h-10 object-cover rounded hover:cursor-pointer"
-            onClick={()=>clearAllTasks(todos.user)}
+            onClick={()=>clearAllTasks(todos.user._id)}
           />
           
         </span>
