@@ -82,7 +82,7 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   const clearAllTasks = (userid) => {
     axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,{
+      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${userid}`,{
   headers: {
     Authorization: `Bearer ${token}`
   }
