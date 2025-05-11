@@ -38,10 +38,10 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
 
   return (
     <div className='relative h-screen w-screen bg-gray-100 '>
-    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-4 space-y-3 text-center">
+    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-3 w-3/4 space-y-3 text-center">
       <h2 className=" text-base sm:text-lg md:text-xl lg:text-2xl font-titles text-green-600">Login to your account</h2>
-      <div className=" flex flex-col gap-2 items-center sm:flex-row">
-        <h3 className="font-text text-base sm:text-lg md:text-xl lg:text-2xl">Don't have an account</h3>
+      <div className=" flex  gap-2 items-center justify-center ">
+        <h3 className="font-text text-base sm:text-lg md:text-xl lg:text-2xl ">Don't have an account</h3>
         <span>
           <a href="" className=" text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-blue-700 font-buttons">
             SignUp
