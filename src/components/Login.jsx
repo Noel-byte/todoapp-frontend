@@ -65,7 +65,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your email'
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-stone-100 px-2 py-1 rounded w-full outline-0 font-text"
+          className="bg-gray-200 px-2 py-1 rounded w-full outline-0 font-text"
           value={email}
         />
         <input
@@ -74,7 +74,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your password'
           onChange={(e) => setPassword(e.target.value)}
-          className="bg-stone-100 px-2 py-1 rounded w-full outline-0 font-text"
+          className="bg-gray-200 px-2 py-1 rounded w-full outline-0 font-text"
           value={password}
         />
         <button
