@@ -38,7 +38,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
 
   return (
     <div className='relative h-screen w-screen bg-gray-100 '>
-    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-3 w-3/4 space-y-3 text-center">
+    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow-lg py-2 px-3 w-3/4 space-y-3 text-center">
     <h1 className='text-left font-titles px-1 py-2 text-orangered text-base sm:text-2xl md:text-3xl lg:text-4xl'>Todo - App</h1>
     <div className='bg-gray-200 h-px shadow-lg'></div>
       <h2 className=" text-base sm:text-xl md:text-2xl lg:text-3xl font-titles text-orangered">Login to your account</h2>
