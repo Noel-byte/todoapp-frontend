@@ -3,13 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export const Login = ({ setIsAuthenticated ,fetchData}) => {
+export const Login = ({ setIsAuthenticated, fetchData }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error,setError] = useState('')
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin =  (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     axios
       .post('https://todoapp-backend-900w.onrender.com/api/users/login', {
@@ -17,48 +17,66 @@ export const Login = ({ setIsAuthenticated ,fetchData}) => {
         password,
       })
       .then((response) => {
-
-    
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
-        fetchData('all')
+        fetchData('all');
         navigate('/todos'); // redirect to AddTodo page
       })
       .catch((err) => {
-        if(err.response){
-          if(err.response.status===400){
-            setError("User not found. Redirecting to register...")
+        if (err.response) {
+          if (err.response.status === 400) {
+            setError('User not found. Redirecting to register...');
             setTimeout(() => {
-              navigate("/register")
+              navigate('/register');
             }, 1500);
-          }else{
-            setError("Network error or server is down")
+          } else {
+            setError('Network error or server is down');
           }
         }
       });
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='relative h-screen w-screen bg-gray-100 '>
+    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-4 space-y-3">
+      <h2 className=" text-2xl text-green-600">Login to your account</h2>
+      <div className=" flex gap-2 pb-2">
+        <h3 className=" font-bold text-lg">Don't have an account</h3>
+        <span>
+          <a href="" className=" text-xl font-semibold text-blue-700">
+            SignUp
+          </a>
+        </span>
+      </div>
+      <div className="text-center">
+        <a href="" className='text-2xl font-semibol hover:cursor-pointer hover:text-orange-600 text-orange-400  '>Google</a>
+      </div>
+      <div className=' flex items-center gap-4'>
+        <div className="flex-1 h-px bg-gray-300"></div>
+        <span className='font-mono'>OR</span>
+        <div className=" flex-1 h-px bg-gray-300"></div>
+      </div>
+
       <form
         onSubmit={handleLogin}
-        className="bg-stone-400 p-4 flex flex-col justify-center items-center space-y-4"
+        className="p-4 flex flex-col justify-center items-center space-y-4"
       >
         <input
           type="email"
           name=""
           id=""
+          placeholder='Enter your email'
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-stone-50 p-2 rounded w-full"
+          className="bg-stone-200 p-2 rounded w-full"
           value={email}
         />
         <input
           type="password"
           name=""
           id=""
+          placeholder='Enter your password'
           onChange={(e) => setPassword(e.target.value)}
-          className="bg-stone-50 p-2 rounded w-full"
+          className="bg-stone-200 p-2 rounded w-full"
           value={password}
         />
         <button
@@ -67,8 +85,10 @@ export const Login = ({ setIsAuthenticated ,fetchData}) => {
         >
           Login
         </button>
-        {error&& <p className=' text-red-600'>{error}</p>}
+        {error && <p className=" text-red-600">{error}</p>}
       </form>
     </div>
+    </div>
+
   );
 };
