@@ -38,22 +38,22 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
 
   return (
     <div className='relative h-screen w-screen bg-gray-100 '>
-    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-4 space-y-3">
-      <h2 className=" text-2xl text-green-600">Login to your account</h2>
-      <div className=" flex gap-2 pb-2">
-        <h3 className=" font-bold text-lg">Don't have an account</h3>
+    <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow py-2 px-4 space-y-3 text-center">
+      <h2 className=" text-base sm:text-lg md:text-xl lg:text-2xl font-titles text-green-600">Login to your account</h2>
+      <div className=" flex flex-col gap-2 items-center sm:flex-row">
+        <h3 className="font-text text-base sm:text-lg md:text-xl lg:text-2xl">Don't have an account</h3>
         <span>
-          <a href="" className=" text-xl font-semibold text-blue-700">
+          <a href="" className=" text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-blue-700 font-buttons">
             SignUp
           </a>
         </span>
       </div>
       <div className="text-center">
-        <a href="" className='text-2xl font-semibol hover:cursor-pointer hover:text-orange-600 text-orange-400  '>Google</a>
+        <a href="" className='text-base sm:text-lg md:text-xl lg:text-2xl font-buttons hover:cursor-pointer hover:text-orange-600 text-orange-400  '>Google</a>
       </div>
       <div className=' flex items-center gap-4'>
         <div className="flex-1 h-px bg-gray-300"></div>
-        <span className='font-mono'>OR</span>
+        <span className='font-text'>OR</span>
         <div className=" flex-1 h-px bg-gray-300"></div>
       </div>
 
@@ -67,7 +67,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your email'
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-stone-200 p-2 rounded w-full"
+          className="bg-stone-200 px-2 py-1 rounded w-full outline-0 font-text"
           value={email}
         />
         <input
@@ -76,12 +76,12 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your password'
           onChange={(e) => setPassword(e.target.value)}
-          className="bg-stone-200 p-2 rounded w-full"
+          className="bg-stone-200 px-2 py-1 rounded w-full outline-0 font-text"
           value={password}
         />
         <button
           type="submit"
-          className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
+          className="bg-blue-900 py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
         >
           Login
         </button>

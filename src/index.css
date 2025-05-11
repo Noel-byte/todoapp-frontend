@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+
+@theme {
+    --color-dark: #424242;
+    --font-buttons:"Roboto", serif;
+    --font-titles:"Montserrat", serif;
+    --font-text:"Poppins", serif;
+    --color-nav:rgba(48,57,76,1);
+    --color-nav:rgba(48,57,76,1);
+    --color-backcolor:#212121;
+  
+  }
