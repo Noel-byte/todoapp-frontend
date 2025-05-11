@@ -26,10 +26,10 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
       .catch((err) => {
         if (err.response) {
           if (err.response.status === 400) {
-            setError('User not found. Redirecting to register...');
+            setError('User not found. Redirecting to registration...');
             setTimeout(() => {
               navigate('/register');
-            }, 1500);
+            }, 3500);
           } else {
             setError('Network error or server is down');
           }
