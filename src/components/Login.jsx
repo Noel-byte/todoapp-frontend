@@ -49,12 +49,9 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           </a>
         </span>
       </div>
-      <div className="text-center">
-        <a href="" className='text-base sm:text-lg md:text-xl lg:text-2xl font-buttons hover:cursor-pointer hover:text-orange-600 text-orange-400  '>Google</a>
-      </div>
       <div className=' flex items-center gap-4'>
         <div className="flex-1 h-px bg-gray-300"></div>
-        <span className='font-text'>OR</span>
+        <span className='font-text text-gray-400'>Login</span>
         <div className=" flex-1 h-px bg-gray-300"></div>
       </div>
 
@@ -68,7 +65,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your email'
           onChange={(e) => setEmail(e.target.value)}
-          className="bg-stone-200 px-2 py-1 rounded w-full outline-0 font-text"
+          className="bg-stone-100 px-2 py-1 rounded w-full outline-0 font-text"
           value={email}
         />
         <input
@@ -77,7 +74,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           id=""
           placeholder='Enter your password'
           onChange={(e) => setPassword(e.target.value)}
-          className="bg-stone-200 px-2 py-1 rounded w-full outline-0 font-text"
+          className="bg-stone-100 px-2 py-1 rounded w-full outline-0 font-text"
           value={password}
         />
         <button
