@@ -13,12 +13,14 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    toast.loading("Please wait...")
     axios
       .post('https://todoapp-backend-900w.onrender.com/api/users/login', {
         email,
         password,
       })
       .then((response) => {
+        toast.success("Login successful")
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
         fetchData('all');
