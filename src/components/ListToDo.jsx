@@ -5,8 +5,8 @@ import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
 import save from '../assets/save.png';
 import { FilterTasks } from './FilterTasks';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+// import { confirmAlert } from 'react-confirm-alert';
+// import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export const ListToDo = ({ todos, fetchData }) => {
   const [editNoteId, setEditNoteId] = useState(null);
@@ -15,13 +15,13 @@ export const ListToDo = ({ todos, fetchData }) => {
   const token = localStorage.getItem('token');
 
   const handleDelete = (id) => {
-    confirmAlert({
-      title: 'Confirm to delete',
-      message: 'Are you sure you want to delete this?',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => {
+    // confirmAlert({
+    //   title: 'Confirm to delete',
+    //   message: 'Are you sure you want to delete this?',
+    //   buttons: [
+    //     {
+    //       label: 'Yes',
+    //       onClick: () => {
             //delete an item with a specific id from the database
             axios
               .delete(
@@ -40,15 +40,15 @@ export const ListToDo = ({ todos, fetchData }) => {
               .catch((error) => {
                 console.error('Error deleting item:', error);
               });
-          },
-        },
-        {
-          label: 'No',
-          onClick: () => {},
-        },
-      ],
-    });
-  };
+          }
+  //       },
+  //       {
+  //         label: 'No',
+  //         onClick: () => {},
+  //       },
+  //     ],
+  //   });
+  // };
 
   const handleEdit = (id) => {
     const todo = todos.find((t) => t._id === id);
