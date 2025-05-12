@@ -109,22 +109,31 @@ export const ListToDo = ({ todos, fetchData }) => {
   };
 
   const clearAllTasks = (userid) => {
-    axios
-      .delete(
-        `https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
-        fetchData('all'); // refresh your list
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    MySwal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to undo this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Clear All Tasks!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then(() => {
+            fetchData('all'); // refresh your list
+          })
+          .catch((error) => {
+            Swal.showValidationMessage('Clearing All the tasks failed');
+          });
+      }
+    });
   };
 
   return (
