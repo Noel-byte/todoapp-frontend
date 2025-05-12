@@ -19,6 +19,7 @@ export const Register = () => {
         password,
       })
       .then(() => {
+        toast.success('Registration successful')
         toast.loading('Redirecting to Login Page Please wait...');
         setTimeout(() => {
           toast.dismiss();
