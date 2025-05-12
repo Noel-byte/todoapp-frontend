@@ -24,7 +24,7 @@ export const Register = () => {
         setTimeout(() => {
           toast.dismiss();
           navigate('/login'); // go to login after registration
-        }, 2500);
+        }, 3500);
       })
       .catch((err) => console.error(err));
   };
