@@ -67,7 +67,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
         </div>
         <div className=" flex items-center gap-4">
           <div className="flex-1 h-px bg-gray-300"></div>
-          <span className="font-text text-gray-400">Login</span>
+          <span className="font-text text-gray-400">Provide email and password to Login</span>
           <div className=" flex-1 h-px bg-gray-300"></div>
         </div>
 

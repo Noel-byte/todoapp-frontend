@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useState } from 'react';
 import done from '../assets/done.png';
@@ -129,7 +130,7 @@ export const ListToDo = ({ todos, fetchData }) => {
           .then(() => {
             fetchData('all'); // refresh your list
           })
-          .catch((error) => {
+          .catch((_error) => {
             Swal.showValidationMessage('Clearing All the tasks failed');
           });
       }
