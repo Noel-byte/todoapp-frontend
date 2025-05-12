@@ -5,50 +5,44 @@ import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
 import save from '../assets/save.png';
 import { FilterTasks } from './FilterTasks';
-// import { confirmAlert } from 'react-confirm-alert';
-// import 'react-confirm-alert/src/react-confirm-alert.css';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 export const ListToDo = ({ todos, fetchData }) => {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
   const token = localStorage.getItem('token');
+  const MySwal = withReactContent(Swal);
 
   const handleDelete = (id) => {
-    // confirmAlert({
-    //   title: 'Confirm to delete',
-    //   message: 'Are you sure you want to delete this?',
-    //   buttons: [
-    //     {
-    //       label: 'Yes',
-    //       onClick: () => {
-            //delete an item with a specific id from the database
-            axios
-              .delete(
-                `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
-                {
-                  headers: {
-                    Authorization: `Bearer ${token}`,
-                  },
-                }
-              )
-              .then((response) => {
-                alert('Deleted:' + JSON.stringify(response.data.message));
-                //refresh the ui
-                fetchData('all');
-              })
-              .catch((error) => {
-                console.error('Error deleting item:', error);
-              });
-          }
-  //       },
-  //       {
-  //         label: 'No',
-  //         onClick: () => {},
-  //       },
-  //     ],
-  //   });
-  // };
+    MySwal.fire({
+      title:'Are you sure?',
+      text:'You will not be able to undo this!',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonText:'Yes, delete it!'
+    }).then((result)=>{
+      if(result.isConfirmed){
+  axios
+      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        alert('Deleted:' + JSON.stringify(response.data.message));
+        //refresh the ui
+        fetchData('all');
+      })
+      .catch((error) => {
+        console.error('Error deleting item:', error);
+      });
+      }
+    });
+  
+  };
+
 
   const handleEdit = (id) => {
     const todo = todos.find((t) => t._id === id);
