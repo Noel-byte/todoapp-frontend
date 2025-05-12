@@ -76,7 +76,7 @@ function App() {
                 <Footer />
               </>
             ) : (
-              <Navigate to="/register" />
+              <Navigate to="/login" />
             )
           }
         />
