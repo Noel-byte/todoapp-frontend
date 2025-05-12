@@ -17,57 +17,65 @@ export const ListToDo = ({ todos, fetchData }) => {
 
   const handleDelete = (id) => {
     MySwal.fire({
-      title:'Are you sure?',
-      text:'You will not be able to undo this!',
-      icon:'warning',
-      showCancelButton:true,
-      confirmButtonText:'Yes, delete it!'
-    }).then((result)=>{
-      if(result.isConfirmed){
-  axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        alert('Deleted:' + JSON.stringify(response.data.message));
-        //refresh the ui
-        fetchData('all');
-      })
-      .catch((error) => {
-        console.error('Error deleting item:', error);
-      });
+      title: 'Are you sure?',
+      text: 'You will not be able to undo this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(() => {
+            //refresh the ui
+            fetchData('all');
+          })
+          .catch((error) => {
+            console.error('Error deleting item:', error);
+          });
       }
     });
-  
   };
-
 
   const handleEdit = (id) => {
     const todo = todos.find((t) => t._id === id);
     //toggle between Save and Edit
     if (editNoteId === id) {
       //handle save logic here
-      axios
-        .put(
-          `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
-          {
-            text: editedItemsNote[id],
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
+      MySwal.fire({
+        title: 'Save changes?',
+        text: 'Do you want to save the changes you made?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, save it!',
+        cancelButtonText: 'Cancel',
+        showLoaderOnConfirm: true,
+        preConfirm: async () => {
+          try {
+            axios.put(
+              `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
+              {
+                text: editedItemsNote[id],
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+
+            fetchData('all');
+          } catch (err) {
+            Swal.showValidationMessage('Save failed. Try again.' + err);
           }
-        )
-        .then((response) => {
-          alert('Saved' + JSON.stringify(response.data.message));
-          fetchData('all');
-        })
-        .catch((error) => {
-          console.error('error', error);
-        });
+        },
+        allowOutsideClick: () => !Swal.isLoading(),
+      });
+
       setEditNoteId(null);
     } else {
       setEditNoteId(id);
