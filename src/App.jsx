@@ -10,6 +10,7 @@ import { Header } from './components/Header';
 import { AddToDo } from './components/AddToDo';
 import Footer from './components/Footer';
 import React, { useEffect, useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,7 +50,9 @@ function App() {
 
   useEffect(() => {
     if (isAuthenticated) {
+      toast.loading('Please wait')
       fetchData('all');
+      toast.dismiss()
     }
   }, [isAuthenticated]);
 

@@ -26,7 +26,6 @@ export const AddToDo = ({ todos, fetchData }) => {
     if (todo.trim() === '') return;
 
 
-
     //add it to the database
     axios
       .post(
@@ -38,7 +37,7 @@ export const AddToDo = ({ todos, fetchData }) => {
           },
         }
       )
-      .then((response) => console.log('Todo added', response))
+      .then((response) => {console.log('Todo added', response)})
       .catch((error) => console.error('Error', error));
 
     //refresh the ui

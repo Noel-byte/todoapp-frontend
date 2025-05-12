@@ -20,7 +20,7 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
         password,
       })
       .then((response) => {
-        toast.success("Login successful")
+        toast.success("dismiss")
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
         fetchData('all');
