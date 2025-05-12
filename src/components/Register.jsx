@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import pleasewait from '../assets/pleasewait.gif'
 import {Toaster,toast} from 'react-hot-toast'
 
 export const Register = () => {
@@ -11,7 +10,7 @@ export const Register = () => {
   const [message,setMessage] = useState('')
   const navigate = useNavigate();
 
-  toast.loading('Redirecting to Login Page...')
+ 
   const handleRegister = (e) => {
     e.preventDefault();
     console.log('email:', email, 'password:', password);
@@ -23,7 +22,9 @@ export const Register = () => {
       })
       .then(() => {
         setMessage('Redirecting to login page...')
+         toast.loading('Redirecting to Login Page...')
         setTimeout(()=>{
+          toast.dismiss()
               navigate('/login'); // go to login after registration
         },2500)
        
@@ -63,7 +64,7 @@ export const Register = () => {
             className="bg-gray-200 px-2 py-1 rounded w-full outline-0 font-text"
             value={password}
           />
-          {message?<Toaster/>:''}
+          <Toaster/>
           <button
             type="submit"
             className="bg-blue-900 py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
