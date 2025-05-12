@@ -5,6 +5,8 @@ import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
 import save from '../assets/save.png';
 import { FilterTasks } from './FilterTasks';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export const ListToDo = ({ todos, fetchData }) => {
   const [editNoteId, setEditNoteId] = useState(null);
@@ -13,21 +15,39 @@ export const ListToDo = ({ todos, fetchData }) => {
   const token = localStorage.getItem('token');
 
   const handleDelete = (id) => {
-    //delete an item with a specific id from the database
-    axios
-      .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    confirmAlert({
+      title: 'Confirm to delete',
+      message: 'Are you sure you want to delete this?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+            //delete an item with a specific id from the database
+            axios
+              .delete(
+                `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
+                {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                }
+              )
+              .then((response) => {
+                alert('Deleted:' + JSON.stringify(response.data.message));
+                //refresh the ui
+                fetchData('all');
+              })
+              .catch((error) => {
+                console.error('Error deleting item:', error);
+              });
+          },
         },
-      })
-      .then((response) => {
-        alert('Deleted:' + JSON.stringify(response.data.message));
-        //refresh the ui
-        fetchData('all');
-      })
-      .catch((error) => {
-        console.error('Error deleting item:', error);
-      });
+        {
+          label: 'No',
+          onClick: () => {},
+        },
+      ],
+    });
   };
 
   const handleEdit = (id) => {
@@ -111,7 +131,7 @@ export const ListToDo = ({ todos, fetchData }) => {
         <FilterTasks fetchData={fetchData} />
         {todos.length > 0 && (
           <button
-           className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
+            className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
             onClick={() => clearAllTasks(todos[0]?.user)}
           >
             Clear All Tasks
