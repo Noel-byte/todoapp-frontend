@@ -2,12 +2,13 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Toaster, toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 export const Login = ({ setIsAuthenticated, fetchData }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -26,12 +27,14 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
       .catch((err) => {
         if (err.response) {
           if (err.response.status === 400) {
-            setError('User not found. Redirecting to registration...');
+            // setError('User not found. Redirecting to registration...');
+            toast.error('User not found. Redirecting to Registration...')
             setTimeout(() => {
+              toast.dismiss()
               navigate('/register');
             }, 3500);
           } else {
-            setError('Network error or server is down');
+            // setError('Network error or server is down');
           }
         }
       });
@@ -94,7 +97,8 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
           >
             Login
           </button>
-          {error && <p className=" text-red-600">{error}</p>}
+          {/* {error && <p className=" text-red-600">{error}</p>} */}
+          <Toaster/>
         </form>
       </div>
     </div>
