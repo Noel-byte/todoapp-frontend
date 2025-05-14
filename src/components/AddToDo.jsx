@@ -58,9 +58,9 @@ export const AddToDo = () => {
   };
   return (
     <>
-      <div className="p-4 sm:p-8 bg-stone-200 mt-2 w-full sm:w-1/2 mx-auto text-center">
+      <div className="p-4 sm:p-8 bg-white/20 mt-2 w-full sm:w-1/2 mx-auto text-center">
         <form
-          className="bg-stone-400 p-4 flex flex-col justify-center items-center space-y-4"
+          className="bg-white/10 p-4 flex flex-col justify-center items-center space-y-4 text-white"
           onSubmit={handleSubmit}
         >
           <h2 className="text-center text-xl sm:text-2xl text-stone-50">
@@ -73,7 +73,7 @@ export const AddToDo = () => {
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-stone-50 p-2 rounded w-full"
+              className="bg-white/10 p-2 rounded w-full"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
             />
