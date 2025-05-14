@@ -2,34 +2,42 @@ import React from 'react';
 import { useState } from 'react';
 import { ListToDo } from './ListToDo';
 import axios from 'axios';
+import { Toaster, toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-
-export const AddToDo = ({ todos, fetchData }) => {
+import AuthContext from './AuthContext';
+import { useContext } from 'react';
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
+export const AddToDo = () => {
+  const { isAuthenticated, fetchData } = useContext(AuthContext);
   //component memory
   const [todo, setToDo] = useState('');
   // const [todos,setTodos] = useState([])
-   const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token');
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  useEffect(()=>{
- 
-    if(!token) {navigate('/login')}
-
-  },[navigate,token])
-
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchData('all');
+    } else {
+      navigate('/login');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todo.trim() === '') return;
-
+    if (todo.trim() === '') {
+      toast.error('todo cannot be empty');
+      return;
+    }
 
     //add it to the database
     axios
       .post(
-        'https://todoapp-backend-900w.onrender.com/api/todos',
+        `${urlremote}/api/todos`,
         { text: todo },
         {
           headers: {
@@ -37,13 +45,15 @@ export const AddToDo = ({ todos, fetchData }) => {
           },
         }
       )
-      .then((response) => {console.log('Todo added', response)})
-      .catch((error) => console.error('Error', error));
+      .then(() => {
+        toast.success('Success: To do added');
+      })
+      // eslint-disable-next-line no-unused-vars
+      .catch((error) => toast.error());
 
     //refresh the ui
     fetchData('all');
-    //add new todo to the array
-    // setTodos((prevTodos)=>[...prevTodos,todo])
+
     setToDo(''); //clear input after adding
   };
   return (
@@ -75,9 +85,10 @@ export const AddToDo = ({ todos, fetchData }) => {
           >
             AddToDo
           </button>
+          <Toaster />
         </form>
       </div>
-      <ListToDo todos={todos} fetchData={fetchData} />
+      <ListToDo/>
     </>
   );
 };

@@ -1,26 +1,26 @@
 import axios from 'axios';
 import React from 'react';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
-
-export const Login = ({ setIsAuthenticated, fetchData }) => {
+import { NavLink } from 'react-router-dom';
+import AuthContext from './AuthContext';
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
+export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [error, setError] = useState('');
+ const  { setIsAuthenticated, fetchData }  = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    toast.loading("Please wait...")
     axios
-      .post('https://todoapp-backend-900w.onrender.com/api/users/login', {
+      .post(`${urlremote}/api/users/login`, {
         email,
         password,
       })
       .then((response) => {
-        toast.success("dismiss")
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
         fetchData('all');
@@ -37,14 +37,16 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
             }, 3500);
           } else {
             // setError('Network error or server is down');
+            toast.error('Network error or server is down')
+
           }
         }
       });
   };
 
   return (
-    <div className="relative h-screen w-screen bg-gray-100 ">
-      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow-lg py-2 px-3 w-3/4 space-y-3 text-center">
+    <div className="relative h-screen w-screen">
+      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-2/3 bg-white rounded shadow-lg py-2 px-3 w-full max-w-md space-y-3 text-center">
         <h1 className="text-left font-titles px-1 py-2 text-orangered text-base sm:text-2xl md:text-3xl lg:text-4xl">
           Todo - App
         </h1>
@@ -57,12 +59,12 @@ export const Login = ({ setIsAuthenticated, fetchData }) => {
             Don't have an account
           </h3>
           <span>
-            <Link
+            <NavLink
               to="/register"
               className=" text-base sm:text-lg md:text-xl lg:text-3xl font-semibold text-blue-700 font-buttons hover:text-blue-500"
             >
               SignUp
-            </Link>
+            </NavLink>
           </span>
         </div>
         <div className=" flex items-center gap-4">

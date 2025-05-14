@@ -1,17 +1,27 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
 import { Header } from './components/Header';
 import { AddToDo } from './components/AddToDo';
 import Footer from './components/Footer';
 import React, { useEffect, useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios';
+import RouteLayout from './components/Route';
+import AuthContext from './components/AuthContext';
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RouteLayout />,
+    children: [
+      { index: true, element: <Login /> },
+      { path: 'register', element: <Register /> },
+      { path: 'login', element: <Login /> },
+      { path: 'todos', element: <AddToDo /> },
+    ],
+  },
+]);
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [message, setMessage] = useState('');
@@ -30,11 +40,9 @@ function App() {
         console.warn('No token found, skipping fetchData');
         return; //skip if not logged in
       }
-      const welcomeRes = await axios.get(
-        'https://todoapp-backend-900w.onrender.com/'
-      );
+      const welcomeRes = await axios.get(`${urlremote}/`);
       const todosRes = await axios.get(
-        `https://todoapp-backend-900w.onrender.com/api/todos/${status}`,
+        `${urlremote}/api/todos/${status}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -50,45 +58,18 @@ function App() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      toast.loading('Please wait')
       fetchData('all');
-      toast.dismiss()
     }
   }, [isAuthenticated]);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/login"
-          element={
-            <Login
-              setIsAuthenticated={setIsAuthenticated}
-              fetchData={fetchData}
-            />
-          }
-        />
-        <Route
-          path="/todos"
-          element={
-            isAuthenticated ? (
-              <>
-                <Header message={message} />
-                <AddToDo todos={todos} fetchData={fetchData} />
-                <Footer />
-              </>
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
-        <Route
-          path="/"
-          element={<Navigate to={isAuthenticated ? '/todos' : '/login'} />}
-        />
-      </Routes>
-    </Router>
+    <AuthContext
+      value={{ isAuthenticated, setIsAuthenticated, todos, fetchData, message }}
+    >
+      <Header />
+        <RouterProvider router={router} />
+      <Footer />
+    </AuthContext>
   );
 }
 

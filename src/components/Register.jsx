@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
-
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
 export const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,10 +12,8 @@ export const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    console.log('email:', email, 'password:', password);
-
     axios
-      .post('https://todoapp-backend-900w.onrender.com/api/users', {
+      .post(`${urlremote}/api/users`, {
         email,
         password,
       })
@@ -29,8 +28,8 @@ export const Register = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <div className="relative h-screen w-screen bg-gray-100 ">
-      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded shadow-lg py-2 px-3 w-3/4 space-y-3 text-center">
+    <div className="relative h-screen w-screen">
+      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-2/3 bg-white rounded shadow-lg py-2 px-3 w-full max-w-md space-y-3 text-center">
         <h1 className="text-left font-titles px-1 py-2 text-orangered text-base sm:text-2xl md:text-3xl lg:text-4xl">
           Todo - App
         </h1>

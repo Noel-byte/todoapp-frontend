@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState , useContext} from 'react';
 import done from '../assets/done.png';
 import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
@@ -8,13 +8,18 @@ import save from '../assets/save.png';
 import { FilterTasks } from './FilterTasks';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import AuthContext from './AuthContext';
 
-export const ListToDo = ({ todos, fetchData }) => {
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
+
+export const ListToDo = () => {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
   const token = localStorage.getItem('token');
   const MySwal = withReactContent(Swal);
+  const { todos, fetchData } = useContext(AuthContext)
 
   const handleDelete = (id) => {
     MySwal.fire({
@@ -26,7 +31,7 @@ export const ListToDo = ({ todos, fetchData }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://todoapp-backend-900w.onrender.com/api/todos/${id}`, {
+          .delete(`${urlremote}/api/todos/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -58,7 +63,7 @@ export const ListToDo = ({ todos, fetchData }) => {
         preConfirm: async () => {
           try {
             axios.put(
-              `https://todoapp-backend-900w.onrender.com/api/todos/${id}`,
+              `${urlremote}/api/todos/${id}`,
               {
                 text: editedItemsNote[id],
               },
@@ -91,7 +96,7 @@ export const ListToDo = ({ todos, fetchData }) => {
     //handle update logic
     axios
       .put(
-        `https://todoapp-backend-900w.onrender.com/api/todos/${todoid}`,
+        `${urlremote}/api/todos/${todoid}`,
         {
           completed: isChecked,
         },
@@ -120,7 +125,7 @@ export const ListToDo = ({ todos, fetchData }) => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `https://todoapp-backend-900w.onrender.com/api/todos/user/${userid}`,
+            `${urlremote}/api/todos/user/${userid}`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -138,9 +143,9 @@ export const ListToDo = ({ todos, fetchData }) => {
   };
 
   return (
-    <div className=" mt-3  px-8 py-3 bg-blue-400">
+    <div className=" mt-3  px-8 py-3">
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:w-1/2 py-2">
-        <FilterTasks fetchData={fetchData} />
+        <FilterTasks/>
         {todos.length > 0 && (
           <button
             className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"

@@ -1,10 +1,11 @@
+import { useContext } from 'react'
+import AuthContext from './AuthContext'
 
-import { ListToDo } from './ListToDo'
-export const Header = ({message}) => {
-  
+export const Header = () => {
+  const {message} = useContext(AuthContext)
   return (
         <div>
-        <h1 className=' text-2xl text-center bg-stone-500 p-4'>{message}</h1>
+        <h1 className=' text-base sm:text-2xl md:text-3xl lg:text-4xl text-center bg-stone-400 py-6 text-white font-titles'>{message}</h1>
         </div>
   )
 }

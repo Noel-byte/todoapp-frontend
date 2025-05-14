@@ -1,7 +1,12 @@
 import React from 'react'
 import { Button } from './Button'
+import { useContext } from 'react'
+import AuthContext from './AuthContext'
 
-export const FilterTasks = ({fetchData}) => {
+export const FilterTasks = () => {
+  
+const {fetchData} = useContext(AuthContext)
+
   const allTasks = ()=>{
      console.log("all tasks")
     //  load all tasks
