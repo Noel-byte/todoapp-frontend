@@ -29,7 +29,7 @@ export const Register = () => {
   };
   return (
     <div className="relative h-screen w-screen">
-      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-2/3 bg-white rounded shadow-lg py-2 px-3 w-full max-w-md space-y-3 text-center">
+      <div className=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow  p-6 w-full max-w-md space-y-3 text-center text-white">
         <h1 className="text-left font-titles px-1 py-2 text-orangered text-base sm:text-2xl md:text-3xl lg:text-4xl">
           Todo - App
         </h1>
@@ -48,7 +48,7 @@ export const Register = () => {
             id=""
             placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
-            className="bg-gray-200 px-2 py-1 rounded w-full outline-0 font-text"
+            className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={email}
           />
           <input
@@ -57,7 +57,7 @@ export const Register = () => {
             id=""
             placeholder="Enter your password"
             onChange={(e) => setPassword(e.target.value)}
-            className="bg-gray-200 px-2 py-1 rounded w-full outline-0 font-text"
+            className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={password}
           />
           <Toaster />
