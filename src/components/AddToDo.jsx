@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import AuthContext from './AuthContext';
 import { useContext } from 'react';
-const urlremote = `https://todoapp-backend-900w.onrender.com`
+const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`
 export const AddToDo = () => {
   const { isAuthenticated, fetchData } = useContext(AuthContext);
@@ -24,7 +24,7 @@ export const AddToDo = () => {
     } else {
       navigate('/login');
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   const handleSubmit = (e) => {
@@ -73,10 +73,9 @@ export const AddToDo = () => {
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-white/10 p-2 rounded w-full outline"
+              className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
-              
             />
           </div>
 
@@ -89,7 +88,7 @@ export const AddToDo = () => {
           <Toaster />
         </form>
       </div>
-      <ListToDo/>
+      <ListToDo />
     </>
   );
 };
