@@ -160,7 +160,7 @@ export const ListToDo = () => {
         <div
           key={todo._id}
           className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-white text-sm sm:text-base mb-2 p-3 sm:p-4 rounded shadow space-y-2 sm:space-y-0
-            ${todo.completed ? 'bg-green-600' : 'bg-stone-600'}`}
+            ${todo.completed ? 'bg-green-600' : 'bg-white/10'}`}
         >
           {editNoteId === todo._id ? (
             <input
