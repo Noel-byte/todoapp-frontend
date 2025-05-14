@@ -73,9 +73,10 @@ export const AddToDo = () => {
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-white/10 p-2 rounded w-full"
+              className="bg-white/10 p-2 rounded w-full outline"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
+              
             />
           </div>
 
