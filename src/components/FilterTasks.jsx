@@ -59,17 +59,20 @@ export const FilterTasks = () => {
     <div className='relative w-screen'>
       {/* Buttons for md and up */}
    <div className='hidden md:flex justify-around gap-3'>
-        <Button label='All Tasks' onClick={allTasks} />
-        <Button label='Completed Tasks' onClick={completedTasks} />
-        <Button label='Incomplete Tasks' onClick={inCompleteTasks} />
+        <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
+       
+          <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
+        
+          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
 
         {todos.length > 0 && (
-          <button
-            className="bg-white/10 py-2 px-4 rounded-lg w-full sm:w-auto text-stone-50 hover:cursor-pointer hover:bg-white/20"
-            onClick={() => clearAllTasks(todos[0]?.user)}
-          >
-            Clear All Tasks
-          </button>
+             <span
+              // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
+              onClick={() => clearAllTasks(todos[0]?.user)}
+              className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'
+            >
+              Clear All Tasks
+            </span>
         )}
       </div>
 
