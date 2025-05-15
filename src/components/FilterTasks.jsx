@@ -90,12 +90,12 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
         {menuOpen && (
-        <div className='absolute top-full shadow-md rounded-lg flex  justify-center items-start gap-3 px-4 py-2 md:hidden z-50 text-heading mb-2'>
-          <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded  w-full' >All</span>
+        <div className='absolute top-full left-0 shadow-md rounded-lg flex w-full justify-center items-start gap-3 px-4 py-2 md:hidden z-50 text-heading mb-2'>
+          <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded ' >All</span>
           <hr />
-          <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded w-full '>Completed</span>
+          <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded '>Completed</span>
           <hr />
-          <span onClick={inCompleteTasks} className=' font-buttons  px-4 py-1 rounded  w-full'>Incomplete</span>
+          <span onClick={inCompleteTasks} className=' font-buttons  px-4 py-1 rounded '>Incomplete</span>
           <hr />
           {todos.length > 0 && (
             <span
