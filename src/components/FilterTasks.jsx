@@ -58,7 +58,7 @@ export const FilterTasks = () => {
   return (
     <div className='relative w-3/4'>
       {/* Buttons for md and up */}
-   <div className='hidden md:flex justify-around gap-3 text-center text-2xl'>
+   <div className='hidden md:flex justify-around gap-3 text-center text-2xl text-heading'>
         <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
        
           <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
@@ -81,16 +81,16 @@ export const FilterTasks = () => {
         {/* <span className="font-bold text-lg">Tasks</span> */}
         <button onClick={() => setMenuOpen(prev => !prev)} className="focus:outline-none">
           <div className="space-y-1">
-            <span className="block w-6 h-0.5 bg-black"></span>
-            <span className="block w-6 h-0.5 bg-black"></span>
-            <span className="block w-6 h-0.5 bg-black"></span>
+            <span className="block w-6 h-0.5 bg-signup"></span>
+            <span className="block w-6 h-0.5 bg-signup"></span>
+            <span className="block w-6 h-0.5 bg-signup"></span>
           </div>
         </button>
       </div>
 
       {/* Mobile menu dropdown */}
         {menuOpen && (
-        <div className='absolute top-full bg-gr shadow-md rounded-lg flex flex-col justify-center items-start gap-3 px-4 py-4 md:hidden z-50'>
+        <div className='absolute top-full shadow-md rounded-lg flex flex-col justify-center items-start gap-3 px-4 py-4 md:hidden z-50 text-heading'>
           <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
           <hr />
           <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
