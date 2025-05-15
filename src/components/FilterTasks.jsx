@@ -59,11 +59,11 @@ export const FilterTasks = () => {
     <div className='relative w-3/4'>
       {/* Buttons for md and up */}
    <div className='hidden md:flex justify-around gap-3 text-center text-2xl text-heading'>
-        <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
+        <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full' >All Tasks</span>
        
-          <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
+          <span onClick={completedTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded w-full '>Completed Tasks</span>
         
-          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
+          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
 
         {todos.length > 0 && (
              <span
@@ -91,11 +91,11 @@ export const FilterTasks = () => {
       {/* Mobile menu dropdown */}
         {menuOpen && (
         <div className='absolute top-full shadow-md rounded-lg flex flex-col justify-center items-start gap-3 px-4 py-4 md:hidden z-50 text-heading'>
-          <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
+          <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded  w-full' >All Tasks</span>
           <hr />
-          <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
+          <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded w-full '>Completed Tasks</span>
           <hr />
-          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
+          <span onClick={inCompleteTasks} className=' font-buttons  px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
           <hr />
           {todos.length > 0 && (
             <span
