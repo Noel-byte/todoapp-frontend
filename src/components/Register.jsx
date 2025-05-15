@@ -43,10 +43,10 @@ export const Register = () => {
           className="p-4 flex flex-col justify-center items-center space-y-4"
         >
           <input
-            type="email"
+            type="text"
             name=""
             id=""
-            placeholder="Enter your email"
+            placeholder="Username"
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={email}
@@ -55,7 +55,7 @@ export const Register = () => {
             type="password"
             name=""
             id=""
-            placeholder="Enter your password"
+            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={password}
