@@ -90,20 +90,20 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
         {menuOpen && (
-        <div className='absolute top-full shadow-md rounded-lg flex  justify-center items-start gap-3 px-4 py-4 md:hidden z-50 text-heading'>
-          <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded  w-full' >All Tasks</span>
+        <div className='absolute top-full shadow-md rounded-lg flex w-full justify-center items-start gap-3 px-4 py-4 md:hidden z-50 text-heading mb-2'>
+          <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded  w-full' >All</span>
           <hr />
-          <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded w-full '>Completed Tasks</span>
+          <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded w-full '>Completed</span>
           <hr />
-          <span onClick={inCompleteTasks} className=' font-buttons  px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
+          <span onClick={inCompleteTasks} className=' font-buttons  px-4 py-1 rounded  w-full'>Incomplete</span>
           <hr />
           {todos.length > 0 && (
             <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=' font-buttons bg-white/10 text-red-900  px-4 py-1 rounded  w-full'
+              className=' font-buttons bg-white/10 text-red-700  px-4 py-1 rounded  w-full'
             >
-              Clear All Tasks
+              Clear
             </span>
           )}
         </div>
