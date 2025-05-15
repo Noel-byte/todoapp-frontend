@@ -87,7 +87,7 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
         {menuOpen && (
-        <div className='absolute top-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 shadow-md rounded-lg flex flex-col justify-center items-start gap-3 px-4 py-4 md:hidden z-50'>
+        <div className='absolute top-full bg-gr shadow-md rounded-lg flex flex-col justify-center items-start gap-3 px-4 py-4 md:hidden z-50'>
           <span  onClick={allTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full' >All Tasks</span>
           <hr />
           <span onClick={completedTasks} className=' font-buttons bg-white/10 text-white px-4 py-1 rounded w-full '>Completed Tasks</span>
