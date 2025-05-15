@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useState , useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import done from '../assets/done.png';
 import del from '../assets/delete.png';
 import edit from '../assets/edit.png';
@@ -11,7 +11,7 @@ import withReactContent from 'sweetalert2-react-content';
 import AuthContext from './AuthContext';
 
 const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urllocal = `http://localhost:5000`
+// const urllocal = `http://localhost:5000`;
 
 export const ListToDo = () => {
   const [editNoteId, setEditNoteId] = useState(null);
@@ -19,7 +19,7 @@ export const ListToDo = () => {
   const [checkedItems, setCheckedItems] = useState({});
   const token = localStorage.getItem('token');
   const MySwal = withReactContent(Swal);
-  const { todos, fetchData } = useContext(AuthContext)
+  const { todos, fetchData } = useContext(AuthContext);
 
   const handleDelete = (id) => {
     MySwal.fire({
@@ -114,53 +114,13 @@ export const ListToDo = () => {
       });
   };
 
-  const clearAllTasks = (userid) => {
-    MySwal.fire({
-      title: 'Are you sure?',
-      text: 'You will not be able to undo this!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, Clear All Tasks!',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios
-          .delete(
-            `${urlremote}/api/todos/user/${userid}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          )
-          .then(() => {
-            fetchData('all'); // refresh your list
-          })
-          .catch((_error) => {
-            Swal.showValidationMessage('Clearing All the tasks failed');
-          });
-      }
-    });
-  };
-
   return (
-    <div className=" mt-3  px-8 py-3">
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:w-1/2 py-2">
-        <FilterTasks/>
-        {todos.length > 0 && (
-          <button
-            className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
-            onClick={() => clearAllTasks(todos[0]?.user)}
-          >
-            Clear All Tasks
-          </button>
-        )}
-      </div>
-
+    <div className="pt-45 ">
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-white text-sm sm:text-base mb-2 p-3 sm:p-4 rounded-lg shadow space-y-2 sm:space-y-0
-            ${todo.completed ? 'bg-green-600' : 'bg-white/10'}`}
+          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-stone-50 font-text text-sm sm:text-base mb-2 px-3 py-2 border-b-white/10 sm:p-4 rounded-lg shadow space-y-2 sm:space-y-0 
+            ${todo.completed ? 'bg-green-400' : 'bg-white/7'}`}
         >
           {editNoteId === todo._id ? (
             <input
@@ -172,34 +132,34 @@ export const ListToDo = () => {
                   [todo._id]: e.target.value,
                 }))
               }
-              className="w-full rounded p-2 bg-black text-white"
+              className="w-full rounded p-2 bg-white/10 text-white outline-0"
             />
           ) : (
             <span className="break-words w-full sm:w-auto">{todo.text}</span>
           )}
           {!todo.completed ? (
             <div className="flex mt-2 gap-4 justify-around flex-wrap sm:flex-nowrap items-center">
-              <img
+              <button
                 onClick={() => handleDelete(todo._id)}
-                src={del}
-                alt="delete icon"
-                className="w-8 h-8 object-cover rounded hover:cursor-pointer"
-              />
+                className=" bg-red-600 px-6 rounded py-1 hover:cursor-pointer font-buttons"
+              >
+                Delete
+              </button>
 
               {editNoteId === todo._id ? (
-                <img
+                <button
                   onClick={() => handleEdit(todo._id)}
-                  src={save}
-                  alt="save icon"
-                  className="w-8 h-8 object-cover rounded hover:cursor-pointer"
-                />
+                  className=" bg-green-600 px-6 rounded py-1 hover:cursor-pointer  font-buttons"
+                >
+                  Save
+                </button>
               ) : (
-                <img
+                <button
                   onClick={() => handleEdit(todo._id)}
-                  src={edit}
-                  alt="edit icon"
-                  className=" w-8 h-8 object-cover rounded hover:cursor-pointer"
-                />
+                  className="  bg-yellow-600 px-6 rounded py-1 hover:cursor-pointer font-buttons"
+                >
+                  Edit
+                </button>
               )}
               <input
                 type="checkbox"
@@ -207,11 +167,11 @@ export const ListToDo = () => {
                 id=""
                 onChange={(e) => handleCheckbox(e, todo._id)}
                 checked={checkedItems[todo._id] || false}
-                className="w-5 h-5 hover:cursor-pointer"
+                className="w-5 h-5 hover:cursor-pointer "
               />
             </div>
           ) : (
-            <img src={done} className="w-6 h-6" alt="done icon" />
+            <img src={done} className="w-3 h-3" alt="done icon" />
           )}
         </div>
       ))}

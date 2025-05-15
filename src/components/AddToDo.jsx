@@ -58,29 +58,25 @@ export const AddToDo = () => {
   };
   return (
     <>
-      <div className="p-4 sm:p-8 bg-white/20 mt-2 w-full sm:w-1/2 mx-auto text-center">
+      <div className="p-4 sm:p-8  mt-2 w-full  mx-auto text-center fixed top-16 left-0 right-0 z-40">
         <form
-          className="bg-white/10 p-4 flex flex-col justify-center items-center space-y-4 text-white"
+          className="p-4 flex gap-2 justify-center items-baseline  text-white "
           onSubmit={handleSubmit}
         >
-          <h2 className="text-center text-xl sm:text-2xl text-stone-50">
-            Add todos below
-          </h2>
-
-          <div className="w-full flex flex-col sm:flex-row items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-2">
+          <div className="w-full flex  sm:flex-row items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-2">
             <input
               type="text"
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
+              className="bg-white/10 px-2 py-2 rounded w-full outline-0 font-text"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
             />
           </div>
 
           <button
-            className="bg-blue-900 py-2 px-4 rounded-lg w-full sm:w-auto text-white hover:cursor-pointer hover:bg-blue-600"
+            className="bg-white/10 py-2 px-4 rounded-lg sm:w-auto text-white hover:cursor-pointer hover:bg-white/20"
             type="submit"
           >
             AddToDo

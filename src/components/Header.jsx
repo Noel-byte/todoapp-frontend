@@ -1,11 +1,15 @@
-import { useContext } from 'react'
-import AuthContext from './AuthContext'
+// import { useContext } from 'react';
+// import AuthContext from './AuthContext';
+import { Button } from './Button';
+import {NavLink} from 'react-router-dom'
+import { FilterTasks } from './FilterTasks';
 
 export const Header = () => {
-  const {message} = useContext(AuthContext)
+  // const { message } = useContext(AuthContext);
   return (
-        <div>
-        <h1 className=' text-base sm:text-2xl md:text-3xl lg:text-4xl text-center bg-navbar py-6 text-white/20 font-titles'>{message}</h1>
-        </div>
-  )
-}
+<div className='fixed top-0 left-0 right-0 z-50 w-full h-16 flex  py-2 px-2 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800'>
+<FilterTasks/>
+<span className=' self-center ml-auto font-buttons text-2xl text-stone-50 '>Logout</span>
+</div>
+  );
+};
