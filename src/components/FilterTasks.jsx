@@ -69,7 +69,7 @@ export const FilterTasks = () => {
              <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'
+              className=' font-buttons bg-white/10 text-red-900 px-4 py-1 rounded  w-full'
             >
               Clear All Tasks
             </span>
@@ -101,7 +101,7 @@ export const FilterTasks = () => {
             <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=' font-buttons bg-white/10 text-white px-4 py-1 rounded  w-full'
+              className=' font-buttons bg-white/10 text-red-900  px-4 py-1 rounded  w-full'
             >
               Clear All Tasks
             </span>
