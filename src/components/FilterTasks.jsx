@@ -57,7 +57,7 @@ export const FilterTasks = () => {
 
   return (
     <div className='relative w-screen'>
-      {/* Buttons for md and up */}
+      {/* Buttons for lg and up */}
    <div className='hidden lg:flex justify-around gap-3 text-center text-2xl text-heading'>
         <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full' >All Tasks</span>
        
@@ -77,7 +77,7 @@ export const FilterTasks = () => {
       </div>
 
       {/* Hamburger icon for small screens */}
-      <div className='lg:hidden flex justify-between items-center px-2 py-2'>
+      <div className='md:hidden flex justify-between items-center px-2 py-2'>
         {/* <span className="font-bold text-lg">Tasks</span> */}
         <button onClick={() => setMenuOpen(prev => !prev)} className="focus:outline-none">
           <div className="space-y-1">
