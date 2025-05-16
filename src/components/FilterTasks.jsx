@@ -61,9 +61,9 @@ export const FilterTasks = () => {
    <div className='hidden lg:flex justify-around gap-3 text-center text-2xl text-heading'>
         <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer' >All Tasks</span>
        
-          <span onClick={completedTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded w-full hover:cursor-pointer '>Completed Tasks</span>
+          <span onClick={completedTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded w-full hover:cursor-pointer '>Completed</span>
         
-          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Incomplete Tasks</span>
+          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Incomplete</span>
 
         {todos.length > 0 && (
              <span
@@ -71,7 +71,7 @@ export const FilterTasks = () => {
               onClick={() => clearAllTasks(todos[0]?.user)}
               className=' font-buttons bg-white/10 text-red-600 px-4 py-1 rounded  w-full hover:cursor-pointer'
             >
-              Clear All Tasks
+              Clear
             </span>
         )}
       </div>
