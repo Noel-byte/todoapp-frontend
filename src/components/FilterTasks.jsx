@@ -10,7 +10,7 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urllocal = `http://localhost:5000`;
+// const urlremote = `http://localhost:5000`;
 
 export const FilterTasks = () => {
   const { fetchData, todos } = useContext(AuthContext);
@@ -56,7 +56,7 @@ export const FilterTasks = () => {
   };
 
   return (
-    <div className='relative w-screen'>
+    <div className='relative w-full'>
       {/* Buttons for lg and up */}
    <div className='hidden lg:flex justify-around gap-3 text-center text-2xl text-heading'>
         <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full' >All Tasks</span>
@@ -69,7 +69,7 @@ export const FilterTasks = () => {
              <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=' font-buttons bg-white/10 text-red-900 px-4 py-1 rounded  w-full'
+              className=' font-buttons bg-white/10 text-red-600 px-4 py-1 rounded  w-full'
             >
               Clear All Tasks
             </span>
@@ -90,7 +90,7 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
         {menuOpen && (
-        <div className='absolute top-full left-0 shadow-md rounded-lg flex w-full justify-center items-start gap-3 px-4 py-2 lg:hidden z-50 text-heading mb-2'>
+        <div className='absolute top-full left-0 shadow-md rounded-lg flex w-full justify-center items-start gap-3 px-4 py-2  mt-1 lg:hidden z-50 text-heading mb-2'>
           <span  onClick={allTasks} className=' font-buttons  px-4 py-1 rounded ' >All</span>
           <hr />
           <span onClick={completedTasks} className=' font-buttons   px-4 py-1 rounded '>Completed</span>
@@ -101,10 +101,10 @@ export const FilterTasks = () => {
             <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=' font-buttons bg-white/10 text-red-700  px-4 py-1 rounded '
+              className=' font-buttons  text-red-600  px-4 py-1 rounded '
             >
               Clear
-            </span>
+            </span>  
           )}
         </div>
       )}

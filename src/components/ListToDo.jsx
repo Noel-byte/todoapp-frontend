@@ -11,7 +11,7 @@ import withReactContent from 'sweetalert2-react-content';
 import AuthContext from './AuthContext';
 
 const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urllocal = `http://localhost:5000`;
+// const urlremote = `http://localhost:5000`;
 
 export const ListToDo = () => {
   const [editNoteId, setEditNoteId] = useState(null);
@@ -119,8 +119,8 @@ export const ListToDo = () => {
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-stone-50 font-text text-sm sm:text-base mb-2 px-3 py-2 border-b-white/10 sm:p-4 rounded-lg shadow space-y-2 sm:space-y-0 
-            ${todo.completed ? 'bg-green-400' : 'bg-white/7'}`}
+          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center text-black font-text text-sm sm:text-base mb-2 px-3 py-2 border-b-white/10 sm:p-4 rounded-lg shadow space-y-2 sm:space-y-0 
+            ${todo.completed ? 'bg-green-400' : 'bg-stone-50'}`}
         >
           {editNoteId === todo._id ? (
             <input
@@ -132,7 +132,7 @@ export const ListToDo = () => {
                   [todo._id]: e.target.value,
                 }))
               }
-              className="w-full rounded p-2 bg-white/10 text-white outline-0"
+              className="w-full rounded p-2 bg-stone-500 text-stone-50 outline-0"
             />
           ) : (
             <span className="break-words w-full sm:w-auto">{todo.text}</span>

@@ -6,7 +6,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import AuthContext from './AuthContext';
 const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urllocal = `http://localhost:5000`
+// const urlremote = `http://localhost:5000`
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,10 +30,10 @@ export const Login = () => {
         if (err.response) {
           if (err.response.status === 400) {
             // setError('User not found. Redirecting to registration...');
-            toast.error('User not found. Redirecting to Registration...')
+            toast.error('username or password not correct, Try Again.')
             setTimeout(() => {
               toast.dismiss()
-              navigate('/register');
+              navigate('/login');
             }, 3500);
           } else {
             // setError('Network error or server is down');
