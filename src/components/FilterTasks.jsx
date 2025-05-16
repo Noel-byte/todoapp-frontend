@@ -59,11 +59,11 @@ export const FilterTasks = () => {
     <div className='relative w-full'>
       {/* Buttons for lg and up */}
    <div className='hidden lg:flex justify-around gap-3 text-center text-2xl text-heading'>
-        <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full' >All Tasks</span>
+        <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer' >All Tasks</span>
        
-          <span onClick={completedTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded w-full '>Completed Tasks</span>
+          <span onClick={completedTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded w-full hover:cursor-pointer '>Completed Tasks</span>
         
-          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full'>Incomplete Tasks</span>
+          <span onClick={inCompleteTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Incomplete Tasks</span>
 
         {todos.length > 0 && (
              <span
