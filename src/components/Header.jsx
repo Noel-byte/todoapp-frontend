@@ -18,7 +18,7 @@ export const Header = () => {
 <FilterTasks/>
 
 <div className="flex items-center ml-auto space-x-3">
-  <div className="w-10 h-10 rounded-full bg-stone-600 text-white flex items-center justify-center font-bold text-lg">
+  <div className="w-10 h-10 rounded-full bg-stone-600 text-white flex items-center justify-center font-bold text-lg hover:cursor-pointer">
     {user?.charAt(0).toUpperCase()}
   </div>
   <span className="font-buttons text-lg text-stone-50">{user}</span>
