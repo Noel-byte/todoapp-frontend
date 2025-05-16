@@ -46,7 +46,7 @@ export const Login = () => {
 
   return (
     <div className="relative h-screen w-screen">
-      <div className=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow  p-6 w-3/4 max-w-md space-y-3 text-center text-white">
+      <div className=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg shadow  p-6 w-9/10 max-w-md space-y-3 text-center text-white">
         <h1 className="text-left font-titles px-1 py-2 text-heading text-base sm:text-2xl md:text-3xl lg:text-4xl">
           Todo - App
         </h1>
