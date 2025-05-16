@@ -37,7 +37,7 @@ export const Register = () => {
           Todo - App
         </h1>
         <div className="bg-gray-200 h-px shadow-lg"></div>
-        <h2 className=" text-base sm:text-2xl md:text-3xl lg:text-4xl font-titles text-heading">
+        <h2 className="  text-4xl font-titles text-heading">
           Register Here
         </h2>
 
