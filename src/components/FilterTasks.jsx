@@ -56,7 +56,7 @@ export const FilterTasks = () => {
   };
 
   return (
-    <div className='relative w-full'>
+    <div className='relative w-1/2'>
       {/* Buttons for lg and up */}
    <div className='hidden lg:flex justify-around gap-3 text-center text-2xl text-heading'>
         <span  onClick={allTasks} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer' >All Tasks</span>
