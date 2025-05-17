@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 
-const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urlremote = `http://localhost:5000`;
+// const urlremote = `https://todoapp-backend-900w.onrender.com`
+const urllocal = `http://localhost:5000`;
 
 
 
@@ -44,7 +44,7 @@ export const FilterTasks = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${urlremote}/api/todos/user/${userid}`, {
+          .delete(`${urllocal}/api/todos/user/${userid}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
