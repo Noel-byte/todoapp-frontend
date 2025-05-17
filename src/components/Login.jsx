@@ -28,6 +28,7 @@ export const Login = () => {
       .then((response) => {
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
+        window.location.reload()
         fetchData('all');
         navigate('/todos'); // redirect to AddTodo page
       })

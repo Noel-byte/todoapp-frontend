@@ -112,7 +112,6 @@ export const FilterTasks = () => {
 
       {/* Hamburger icon for small screens */}
       <div className="lg:hidden flex  justify-between items-center px-2 py-2">
-        {/* <span className="font-bold text-lg">Tasks</span> */}
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
           className="focus:outline-none"
