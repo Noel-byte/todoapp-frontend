@@ -78,6 +78,7 @@ function App() {
         message,
         user,
         setUser,
+        setTodos
       }}
     >
       <RouterProvider router={router} />
