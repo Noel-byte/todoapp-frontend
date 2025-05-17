@@ -11,11 +11,11 @@ import { Login } from './Login';
 
 import Swal from 'sweetalert2';
 
-const urlremote = `https://todoapp-backend-900w.onrender.com`
+const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`;
 
 export const FilterTasks = () => {
-  const { fetchData, todos, setUser, isAuthenticated ,setIsAuthenticated} =
+  const { fetchData, todos, setUser, isAuthenticated, setIsAuthenticated } =
     useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const token = localStorage.getItem('token');
@@ -62,8 +62,8 @@ export const FilterTasks = () => {
   const logoutUser = () => {
     localStorage.removeItem('token');
     setUser(null);
+    setIsAuthenticated(false);
     navigate('/login');
-    setIsAuthenticated(false)
   };
 
   return (
