@@ -1,11 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import done from '../assets/done.png';
-import del from '../assets/delete.png';
-import edit from '../assets/edit.png';
-import save from '../assets/save.png';
-import { FilterTasks } from './FilterTasks';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AuthContext from './AuthContext';
