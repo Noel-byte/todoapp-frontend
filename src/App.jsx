@@ -8,8 +8,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RouteLayout from './components/Route';
 import AuthContext from './components/AuthContext';
-import { ListToDo } from './components/ListToDo';
-import { FilterTasks } from './components/FilterTasks';
+import jwt_decode from 'jwt_decode';
 const urlremote = `https://todoapp-backend-900w.onrender.com`
 // const urllocal = `http://localhost:5000`;
 const router = createBrowserRouter([
@@ -36,9 +35,12 @@ function App() {
   }, []);
 
   const fetchData = async (status = '') => {
+
     try {
       const token = localStorage.getItem('token');
-      console.log('this token', token);
+      // console.log('this token', token);
+      const decoded = jwt_decode(token)
+      const userId = decoded.id;
       if (!token) {
         console.warn('No token found, skipping fetchData');
         return; //skip if not logged in
@@ -49,9 +51,9 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('my id -  ', todosRes.data[0].user);
+      // console.log('my id -  ', todosRes.data[0].user);
       axios
-        .get(`${urlremote}/api/users/${todosRes.data[0].user}`)
+        .get(`${urlremote}/api/users/${userId}`)
         .then((res) => setUser(res.data.email))
         .catch((err) => console.log('Error fetching user name:', err));
 

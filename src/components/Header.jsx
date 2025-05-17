@@ -6,12 +6,9 @@ import { FilterTasks } from './FilterTasks';
 // import axios from 'axios';
 import { useContext} from 'react';
 import AuthContext from './AuthContext';
-// const urlremote = `https://todoapp-backend-900w.onrender.com`
-// const urllocal = `http://localhost:5000`
+
 export const Header = () => {
   const { user,isAuthenticated} = useContext(AuthContext);
-
-//  console.log(user)
 
   return (
 <div className='fixed bg-button top-0 left-0 right-0 z-50 w-full h-16 flex  py-3 px-2 border-b-white/20 border-1'>
