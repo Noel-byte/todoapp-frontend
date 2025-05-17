@@ -60,7 +60,7 @@ export const FilterTasks = () => {
   };
 
   const logoutUser = ()=>{
-    localStorage.removeItem(token)
+    localStorage.removeItem('token')
     navigate('/login')
   }
 
