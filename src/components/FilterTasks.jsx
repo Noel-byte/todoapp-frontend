@@ -67,7 +67,7 @@ export const FilterTasks = () => {
   };
 
   return (
-    <div className="relative w-1/2">
+    <div className="relative w-3/5">
       {/* Buttons for lg and up */}
       <div className="hidden lg:flex justify-around gap-3 text-center text-2xl text-heading">
         <span
@@ -127,7 +127,7 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
       {menuOpen && (
-        <div className="absolute top-full left-0 shadow-md rounded-lg flex  justify-between items-start gap-2  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
+        <div className="absolute top-full left-0 shadow-md rounded-lg flex  justify-between items-start gap-1  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
           <span
             onClick={allTasks}
             className=" font-buttons  px-2 py-1 rounded "
