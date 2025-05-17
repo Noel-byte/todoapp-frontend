@@ -111,7 +111,7 @@ export const FilterTasks = () => {
       </div>
 
       {/* Hamburger icon for small screens */}
-      <div className="lg:hidden flex justify-between items-center px-2 py-2">
+      <div className="lg:hidden flex  justify-between items-center px-2 py-2">
         {/* <span className="font-bold text-lg">Tasks</span> */}
         <button
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -127,7 +127,7 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
       {menuOpen && (
-        <div className="absolute top-full left-0 shadow-md rounded-lg flex  justify-between items-start gap-1  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
+        <div className="absolute top-full left-0 shadow-md rounded-lg flex  flex-wrap justify-between items-start gap-1  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
           <span
             onClick={allTasks}
             className=" font-buttons  px-2 py-1 rounded "
