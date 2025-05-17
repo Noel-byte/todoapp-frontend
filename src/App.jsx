@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RouteLayout from './components/Route';
 import AuthContext from './components/AuthContext';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 const urlremote = `https://todoapp-backend-900w.onrender.com`
 // const urllocal = `http://localhost:5000`;
 const router = createBrowserRouter([
@@ -39,7 +39,7 @@ function App() {
     try {
       const token = localStorage.getItem('token');
       // console.log('this token', token);
-      const decoded = jwt_decode(token)
+      const decoded = jwtDecode(token)
       const userId = decoded.id;
       if (!token) {
         console.warn('No token found, skipping fetchData');
