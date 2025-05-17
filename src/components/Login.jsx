@@ -1,25 +1,23 @@
 import axios from 'axios';
 import React from 'react';
-import { useState,useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import AuthContext from './AuthContext';
-const urlremote = `https://todoapp-backend-900w.onrender.com`
+const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- const  { setIsAuthenticated, isAuthenticated, fetchData }  = useContext(AuthContext)
+  const [loading, setLoading] = useState(false);
+  const { setIsAuthenticated, fetchData } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if(isAuthenticated){
-toast.loading('Please wait...')
-    }
-    
-   await axios
+    setLoading(true);
+    await axios
       .post(`${urlremote}/api/users/login`, {
         email,
         password,
@@ -34,17 +32,19 @@ toast.loading('Please wait...')
         if (err.response) {
           if (err.response.status === 400) {
             // setError('User not found. Redirecting to registration...');
-            toast.error('username or password not correct, Try Again.')
+            toast.error('username or password not correct, Try Again.');
             setTimeout(() => {
-              toast.dismiss()
+              toast.dismiss();
               navigate('/login');
             }, 3500);
           } else {
             // setError('Network error or server is down');
-            toast.error('Network error or server is down')
-
+            toast.error('Network error or server is down');
           }
         }
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -89,6 +89,7 @@ toast.loading('Please wait...')
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white/10  px-2 py-1 rounded w-full outline-0 font-text"
             value={email}
+            disabled={loading}
           />
           <input
             type="password"
@@ -98,15 +99,17 @@ toast.loading('Please wait...')
             onChange={(e) => setPassword(e.target.value)}
             className="bg-white/10  px-2 py-1 rounded w-full outline-0 font-text"
             value={password}
+            disabled={loading}
           />
           <button
             type="submit"
             className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer hover:bg-button/10"
+            disabled={loading}
           >
-            Login
+           {loading?'Please wait..':'Login'} 
           </button>
           {/* {error && <p className=" text-red-600">{error}</p>} */}
-          <Toaster/>
+          <Toaster />
         </form>
       </div>
     </div>
