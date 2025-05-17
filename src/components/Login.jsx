@@ -11,7 +11,7 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { setIsAuthenticated, fetchData,setUser } = useContext(AuthContext);
+  const { setIsAuthenticated, fetchData,setUser,setTodos } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -29,6 +29,7 @@ export const Login = () => {
       .then((response) => {
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
+        setTodos([]);//clears old user's data
         fetchData('all');
         navigate('/todos'); // redirect to AddTodo page
       })
