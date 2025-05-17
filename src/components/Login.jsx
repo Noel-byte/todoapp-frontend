@@ -17,6 +17,9 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    if(loading){
+      toast.loading("Please wait...")
+    }
     await axios
       .post(`${urlremote}/api/users/login`, {
         email,
