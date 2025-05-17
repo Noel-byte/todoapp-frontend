@@ -13,13 +13,13 @@ export const Login = () => {
  const  { setIsAuthenticated, isAuthenticated, fetchData }  = useContext(AuthContext)
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if(isAuthenticated){
 toast.loading('Please wait...')
     }
     
-    axios
+   await axios
       .post(`${urlremote}/api/users/login`, {
         email,
         password,
