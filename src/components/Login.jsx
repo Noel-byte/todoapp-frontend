@@ -15,6 +15,7 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    toast.loading('Please wait...')
     axios
       .post(`${urlremote}/api/users/login`, {
         email,
