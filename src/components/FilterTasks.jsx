@@ -127,7 +127,7 @@ export const FilterTasks = () => {
 
       {/* Mobile menu dropdown */}
       {menuOpen && (
-        <div className="absolute top-full left-0 shadow-md rounded-lg flex  flex-wrap justify-between items-start gap-1  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
+        <div className="absolute top-full left-0 shadow-md rounded-lg flex bg-button flex-wrap justify-between items-start gap-1  py-2  mt-1 lg:hidden z-50 text-heading mb-2">
           <span
             onClick={allTasks}
             className=" font-buttons  px-2 py-1 rounded "
