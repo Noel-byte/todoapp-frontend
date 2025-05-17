@@ -11,12 +11,13 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { setIsAuthenticated, fetchData } = useContext(AuthContext);
+  const { setIsAuthenticated, fetchData,setUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setUser(null)
     // if(loading){
     //   toast.loading("Please wait...")
     // }
@@ -26,10 +27,8 @@ export const Login = () => {
         password,
       })
       .then((response) => {
-        window.location.reload();
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
-
         fetchData('all');
         navigate('/todos'); // redirect to AddTodo page
       })
