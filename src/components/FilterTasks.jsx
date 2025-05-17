@@ -59,10 +59,10 @@ export const FilterTasks = () => {
     });
   };
 
-  // const logoutUser = ()=>{
-  //   localStorage.removeItem('token')
-  //   navigate('/login')
-  // }
+  const logoutUser = ()=>{
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
 
   return (
     <div className='relative w-1/2'>
@@ -83,7 +83,7 @@ export const FilterTasks = () => {
               Clear
             </span>
         )}
-          {/* <span onClick={logoutUser} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Logout</span> */}
+          <span onClick={logoutUser} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Logout</span>
 
       </div>
 
@@ -117,7 +117,7 @@ export const FilterTasks = () => {
               Clear
             </span>  
           )}
-          {/* <span onClick={logoutUser} className=' font-buttons  px-2 py-1 rounded '>Logout</span> */}
+          <span onClick={logoutUser} className=' font-buttons  px-2 py-1 rounded '>Logout</span>
 
         </div>
       )}
