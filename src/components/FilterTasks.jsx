@@ -6,11 +6,14 @@ import AuthContext from './AuthContext';
 import axios from 'axios';
 import withReactContent from 'sweetalert2-react-content';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 
 const urlremote = `https://todoapp-backend-900w.onrender.com`
 // const urlremote = `http://localhost:5000`;
+
+const navigate = useNavigate()
 
 export const FilterTasks = () => {
   const { fetchData, todos } = useContext(AuthContext);
@@ -55,6 +58,11 @@ export const FilterTasks = () => {
     });
   };
 
+  const logoutUser = ()=>{
+    localStorage.removeItem(token)
+    navigate('/login')
+  }
+
   return (
     <div className='relative w-1/2'>
       {/* Buttons for lg and up */}
@@ -74,6 +82,8 @@ export const FilterTasks = () => {
               Clear
             </span>
         )}
+          <span onClick={logoutUser} className=' font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer '>Logout</span>
+
       </div>
 
       {/* Hamburger icon for small screens */}
@@ -106,6 +116,8 @@ export const FilterTasks = () => {
               Clear
             </span>  
           )}
+          <span onClick={logoutUser} className=' font-buttons  px-2 py-1 rounded '>Logout</span>
+
         </div>
       )}
     </div>
