@@ -72,7 +72,7 @@ function App() {
     <AuthContext
       value={{ isAuthenticated, setIsAuthenticated, todos, fetchData, message ,user}}
     >
-      <Header />
+     {isAuthenticated?<Header />:''} 
         <RouterProvider router={router} />
 
       <Footer />
