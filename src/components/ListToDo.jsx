@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AuthContext from './AuthContext';
 
-// const urlremote = `https://todoapp-backend-900w.onrender.com`
-const urllocal = `http://localhost:5000`;
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`;
 
 export const ListToDo = () => {
   const [editNoteId, setEditNoteId] = useState(null);
@@ -27,7 +27,7 @@ export const ListToDo = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`${urllocal}/api/todos/${id}`, {
+          .delete(`${urlremote}/api/todos/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -59,7 +59,7 @@ export const ListToDo = () => {
         preConfirm: async () => {
           try {
             axios.put(
-              `${urllocal}/api/todos/${id}`,
+              `${urlremote}/api/todos/${id}`,
               {
                 text: editedItemsNote[id],
               },
@@ -92,7 +92,7 @@ export const ListToDo = () => {
     //handle update logic
     axios
       .put(
-        `${urllocal}/api/todos/${todoid}`,
+        `${urlremote}/api/todos/${todoid}`,
         {
           completed: isChecked,
         },

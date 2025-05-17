@@ -9,8 +9,9 @@ import axios from 'axios';
 import RouteLayout from './components/Route';
 import AuthContext from './components/AuthContext';
 import { ListToDo } from './components/ListToDo';
-// const urlremote = `https://todoapp-backend-900w.onrender.com`
-const urllocal = `http://localhost:5000`
+import { FilterTasks } from './components/FilterTasks';
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`;
 const router = createBrowserRouter([
   {
     path: '/',
@@ -27,8 +28,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [message, setMessage] = useState('');
   const [todos, setTodos] = useState([]);
-  const [user,setUser] = useState('')
-
+  const [user, setUser] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -43,17 +43,17 @@ function App() {
         console.warn('No token found, skipping fetchData');
         return; //skip if not logged in
       }
-      const welcomeRes = await axios.get(`${urllocal}/`);
-      const todosRes = await axios.get(
-        `${urllocal}/api/todos/${status}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log('my id -  ',todosRes.data[0].user)
-        axios.get(`${urllocal}/api/users/${todosRes.data[0].user}`).then(res=>setUser(res.data.email)).catch(err=>console.log('Error fetching user name:',err))
+      const welcomeRes = await axios.get(`${urlremote}/`);
+      const todosRes = await axios.get(`${urlremote}/api/todos/${status}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log('my id -  ', todosRes.data[0].user);
+      axios
+        .get(`${urlremote}/api/users/${todosRes.data[0].user}`)
+        .then((res) => setUser(res.data.email))
+        .catch((err) => console.log('Error fetching user name:', err));
 
       setMessage(welcomeRes.data);
       setTodos(todosRes.data);
@@ -70,12 +70,17 @@ function App() {
 
   return (
     <AuthContext
-      value={{ isAuthenticated, setIsAuthenticated, todos, fetchData, message ,user}}
+      value={{
+        isAuthenticated,
+        setIsAuthenticated,
+        todos,
+        fetchData,
+        message,
+        user,
+        setUser,
+      }}
     >
-      <Header />
-        <RouterProvider router={router} />
-
-      <Footer />
+      <RouterProvider router={router} />
     </AuthContext>
   );
 }

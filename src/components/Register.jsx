@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
-// const urlremote = `https://todoapp-backend-900w.onrender.com`
-const urllocal = `http://localhost:5000`;
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`;
 export const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ export const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post(`${urllocal}/api/users`, {
+      .post(`${urlremote}/api/users`, {
         email,
         password,
       })
@@ -56,7 +56,7 @@ export const Register = () => {
         </div>
  <div className=" flex items-center gap-4">
           <div className="flex-1 h-px bg-gray-300"></div>
-          <span className="font-text text-gray-400">Provide email and password to Register</span>
+          <span className="font-text text-gray-400">Register</span>
           <div className=" flex-1 h-px bg-gray-300"></div>
         </div>
         <form

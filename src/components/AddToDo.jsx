@@ -7,8 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import AuthContext from './AuthContext';
 import { useContext } from 'react';
-// const urlremote = `https://todoapp-backend-900w.onrender.com`;
-const urllocal = `http://localhost:5000`
+import { FilterTasks } from './FilterTasks';
+const urlremote = `https://todoapp-backend-900w.onrender.com`;
+// const urllocal = `http://localhost:5000`
 export const AddToDo = () => {
   const { isAuthenticated, fetchData } = useContext(AuthContext);
   //component memory
@@ -37,7 +38,7 @@ export const AddToDo = () => {
     //add it to the database
     axios
       .post(
-        `${urllocal}/api/todos`,
+        `${urlremote}/api/todos`,
         { text: todo },
         {
           headers: {

@@ -5,19 +5,22 @@ import { useNavigate } from 'react-router-dom';
 import { Toaster, toast } from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import AuthContext from './AuthContext';
-// const urlremote = `https://todoapp-backend-900w.onrender.com`
-const urllocal = `http://localhost:5000`
+const urlremote = `https://todoapp-backend-900w.onrender.com`
+// const urllocal = `http://localhost:5000`
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- const  { setIsAuthenticated, fetchData }  = useContext(AuthContext)
+ const  { setIsAuthenticated, isAuthenticated, fetchData }  = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    toast.loading('Please wait...')
+    if(isAuthenticated){
+toast.loading('Please wait...')
+    }
+    
     axios
-      .post(`${urllocal}/api/users/login`, {
+      .post(`${urlremote}/api/users/login`, {
         email,
         password,
       })
@@ -70,7 +73,7 @@ export const Login = () => {
         </div>
         <div className=" flex items-center gap-4">
           <div className="flex-1 h-px bg-gray-300"></div>
-          <span className="font-text text-gray-400">Provide email and password to Login</span>
+          <span className="font-text text-gray-400">Login</span>
           <div className=" flex-1 h-px bg-gray-300"></div>
         </div>
 
