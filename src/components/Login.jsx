@@ -17,9 +17,9 @@ export const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if(loading){
-      toast.loading("Please wait...")
-    }
+    // if(loading){
+    //   toast.loading("Please wait...")
+    // }
     await axios
       .post(`${urlremote}/api/users/login`, {
         email,
@@ -109,8 +109,8 @@ export const Login = () => {
             className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer hover:bg-button/10"
             disabled={loading}
           >
-            Login
-           {/* {loading?'Please wait..':'Login'}  */}
+            
+           {loading?'Please wait..':'Login'} 
           </button>
           {/* {error && <p className=" text-red-600">{error}</p>} */}
           <Toaster />
