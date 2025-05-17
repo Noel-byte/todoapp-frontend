@@ -13,13 +13,14 @@ import Swal from 'sweetalert2';
 const urlremote = `https://todoapp-backend-900w.onrender.com`
 // const urlremote = `http://localhost:5000`;
 
-const navigate = useNavigate()
+
 
 export const FilterTasks = () => {
   const { fetchData, todos } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const token = localStorage.getItem('token');
   const MySwal = withReactContent(Swal);
+  const navigate = useNavigate()
 
   const allTasks = () => {
     console.log('all tasks');
