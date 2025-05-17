@@ -109,7 +109,8 @@ export const Login = () => {
             className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer hover:bg-button/10"
             disabled={loading}
           >
-           {loading?'Please wait..':'Login'} 
+            Login
+           {/* {loading?'Please wait..':'Login'}  */}
           </button>
           {/* {error && <p className=" text-red-600">{error}</p>} */}
           <Toaster />
