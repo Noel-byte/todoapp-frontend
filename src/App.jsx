@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RouteLayout from './components/Route';
 import AuthContext from './components/AuthContext';
-import {jwt_decode} from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 const urlremote = `https://todoapp-backend-900w.onrender.com`
 // const urllocal = `http://localhost:5000`;
 const router = createBrowserRouter([
