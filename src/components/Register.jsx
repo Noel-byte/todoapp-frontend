@@ -11,11 +11,13 @@ export const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error,setError] = useState('')
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleRegister = async(e) => {
     e.preventDefault();
-    axios
+    setLoading(true)
+    await axios
       .post(`${urlremote}/api/users`, {
         email,
         password,
@@ -71,6 +73,7 @@ export const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={email}
+            disabled={loading}
           />
           <input
             type="password"
@@ -80,6 +83,7 @@ export const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="bg-white/10 px-2 py-1 rounded w-full outline-0 font-text"
             value={password}
+            disabled={loading}
           />
           {error && <p className=" text-red-600">{error}</p>}
 
@@ -88,7 +92,7 @@ export const Register = () => {
             type="submit"
             className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer  hover:bg-button/10"
           >
-            Register
+            {loading?'Please wait..':'Register'}
           </button>
         </form>
       </div>
