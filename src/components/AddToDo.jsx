@@ -77,7 +77,7 @@ export const AddToDo = () => {
           </div>
 
           <button
-            className="bg-white/10 py-2 px-4 rounded-lg sm:w-auto text-white hover:cursor-pointer hover:bg-white/20"
+            className="bg-button py-2 px-4 rounded-lg sm:w-auto text-heading hover:cursor-pointer hover:bg-button/20"
             type="submit"
           >
             AddToDo
