@@ -15,8 +15,14 @@ const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`;
 
 export const FilterTasks = () => {
-  const { fetchData, todos, setUser, isAuthenticated, setIsAuthenticated,setTodos } =
-    useContext(AuthContext);
+  const {
+    fetchData,
+    todos,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    setTodos,
+  } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const token = localStorage.getItem('token');
   const MySwal = withReactContent(Swal);
@@ -26,15 +32,15 @@ export const FilterTasks = () => {
     console.log('all tasks');
     //  load all tasks
     fetchData('all');
-    setMenuOpen(prev=>!prev)
+    setMenuOpen((prev) => !prev);
   };
   const completedTasks = () => {
     fetchData('complete');
-    setMenuOpen(prev=>!prev)
+    setMenuOpen((prev) => !prev);
   };
   const inCompleteTasks = () => {
     fetchData('incomplete');
-    setMenuOpen(prev=>!prev)
+    setMenuOpen((prev) => !prev);
   };
 
   const clearAllTasks = (userid) => {
@@ -45,6 +51,7 @@ export const FilterTasks = () => {
       showCancelButton: true,
       confirmButtonText: 'Yes, Clear All Tasks!',
     }).then((result) => {
+      setMenuOpen((prev) => !prev);
       if (result.isConfirmed) {
         axios
           .delete(`${urlremote}/api/todos/user/${userid}`, {
@@ -57,9 +64,8 @@ export const FilterTasks = () => {
           })
           .catch((_error) => {
             Swal.showValidationMessage('Clearing All the tasks failed');
-          }).finally(()=>
-            setMenuOpen(prev=>!prev)
-          )
+          })
+          
       }
     });
   };
@@ -67,7 +73,7 @@ export const FilterTasks = () => {
   const logoutUser = () => {
     localStorage.removeItem('token');
     setUser(null);
-    setTodos([])
+    setTodos([]);
     setIsAuthenticated(false);
     navigate('/login');
   };
