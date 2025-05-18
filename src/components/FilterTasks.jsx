@@ -57,9 +57,9 @@ export const FilterTasks = () => {
           })
           .catch((_error) => {
             Swal.showValidationMessage('Clearing All the tasks failed');
-          }).finally(()=>{
+          }).finally(()=>
             setMenuOpen(prev=>!prev)
-          })
+          )
       }
     });
   };
