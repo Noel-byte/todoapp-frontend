@@ -31,6 +31,7 @@ export const FilterTasks = () => {
 
   const allTasks = () => {
     console.log('all tasks');
+    setSelected('all')
     //  load all tasks
     fetchData('all');
     setMenuOpen((prev) => !prev);
@@ -101,7 +102,7 @@ export const FilterTasks = () => {
                 onClick={allTasks}
                 // className=" font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80"
                 className={`font-buttons block  px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'all' && ' bg-blue-300' 
+                  selected === 'all' && ' underline' 
                 }`}
               >
                 All Tasks
@@ -110,7 +111,7 @@ export const FilterTasks = () => {
               <span
                 onClick={completedTasks}
                 className={`font-buttons block  px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'completed' && ' bg-blue-300' 
+                  selected === 'completed' && ' underline' 
                 }`}
               >
                 Completed
@@ -119,7 +120,7 @@ export const FilterTasks = () => {
               <span
                 onClick={inCompleteTasks}
                 className={`font-buttons block  px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'incomplete' && ' bg-blue-300' 
+                  selected === 'incomplete' && ' underline' 
                 }`}
               >
                 Incomplete
