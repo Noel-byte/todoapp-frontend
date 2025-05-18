@@ -15,6 +15,7 @@ const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`;
 
 export const FilterTasks = () => {
+  const [selected, setSelected] = useState('all');
   const {
     fetchData,
     todos,
@@ -35,10 +36,12 @@ export const FilterTasks = () => {
     setMenuOpen((prev) => !prev);
   };
   const completedTasks = () => {
+    setSelected('completed');
     fetchData('complete');
     setMenuOpen((prev) => !prev);
   };
   const inCompleteTasks = () => {
+    setSelected('incomplete');
     fetchData('incomplete');
     setMenuOpen((prev) => !prev);
   };
@@ -96,21 +99,28 @@ export const FilterTasks = () => {
             <>
               <span
                 onClick={allTasks}
-                className=" font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80"
+                // className=" font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80"
+                className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
+                  selected === 'all' ? ' bg-button/50' : ''
+                }`}
               >
                 All Tasks
               </span>
 
               <span
                 onClick={completedTasks}
-                className=" font-buttons  px-4 py-1   hover:cursor-pointer  hover:text-heading/80"
+                className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
+                  selected === 'completed' ? ' bg-button/50' : ''
+                }`}
               >
                 Completed
               </span>
 
               <span
                 onClick={inCompleteTasks}
-                className=" font-buttons   px-4 py-1   hover:cursor-pointer hover:text-heading/80"
+                className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
+                  selected === 'incomplete' ? ' bg-button/50' : ''
+                }`}
               >
                 Incomplete
               </span>
