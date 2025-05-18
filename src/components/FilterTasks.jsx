@@ -78,7 +78,7 @@ export const FilterTasks = () => {
   };
 
   return (
-    <div className="relative w-3/5">
+    <div className="relative w-3/5 bg-black">
       {/* Buttons for lg and up */}
       <div className="hidden lg:flex justify-between items-center gap-4  text-2xl text-heading">
         <div>
