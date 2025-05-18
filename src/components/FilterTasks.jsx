@@ -80,7 +80,7 @@ export const FilterTasks = () => {
   return (
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
-      <div className="hidden lg:flex justify-around gap-3  text-2xl text-heading">
+      <div className="hidden lg:flex justify-around gap-3  text-2xl text-heading bg-black">
             {todos.length > 0 && (
         <div className='flex justify-between gap-2'>
       
