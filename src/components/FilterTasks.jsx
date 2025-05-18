@@ -117,7 +117,7 @@ export const FilterTasks = () => {
        
         </div>
            )}
-        <div>
+        <div className=' self-start text-left bg-red-500'>
           {isAuthenticated ? (
             <span
               onClick={logoutUser}
