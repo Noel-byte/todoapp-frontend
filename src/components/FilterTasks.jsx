@@ -64,8 +64,7 @@ export const FilterTasks = () => {
           })
           .catch((_error) => {
             Swal.showValidationMessage('Clearing All the tasks failed');
-          })
-          
+          });
       }
     });
   };
@@ -82,35 +81,37 @@ export const FilterTasks = () => {
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
       <div className="hidden lg:flex justify-around gap-3 text-center text-2xl text-heading">
-        <span
-          onClick={allTasks}
-          className=" font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer"
-        >
-          All Tasks
-        </span>
-
-        <span
-          onClick={completedTasks}
-          className=" font-buttons bg-white/10  px-4 py-1 rounded w-full hover:cursor-pointer "
-        >
-          Completed
-        </span>
-
-        <span
-          onClick={inCompleteTasks}
-          className=" font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer "
-        >
-          Incomplete
-        </span>
-
         {todos.length > 0 && (
-          <span
-            // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
-            onClick={() => clearAllTasks(todos[0]?.user)}
-            className=" font-buttons bg-white/10 text-red-600 px-4 py-1 rounded  w-full hover:cursor-pointer"
-          >
-            Clear
-          </span>
+          <>
+            <span
+              onClick={allTasks}
+              className=" font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer"
+            >
+              All Tasks
+            </span>
+
+            <span
+              onClick={completedTasks}
+              className=" font-buttons bg-white/10  px-4 py-1 rounded w-full hover:cursor-pointer "
+            >
+              Completed
+            </span>
+
+            <span
+              onClick={inCompleteTasks}
+              className=" font-buttons bg-white/10  px-4 py-1 rounded  w-full hover:cursor-pointer "
+            >
+              Incomplete
+            </span>
+
+            <span
+              // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
+              onClick={() => clearAllTasks(todos[0]?.user)}
+              className=" font-buttons bg-white/10 text-red-600 px-4 py-1 rounded  w-full hover:cursor-pointer"
+            >
+              Clear
+            </span>
+          </>
         )}
         {isAuthenticated ? (
           <span
