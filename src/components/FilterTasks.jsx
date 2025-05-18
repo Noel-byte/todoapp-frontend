@@ -80,8 +80,8 @@ export const FilterTasks = () => {
   return (
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
-      <div className="hidden lg:flex justify-around gap-4  text-2xl text-heading">
-            <div>
+      <div className="hidden lg:flex justify-between items-center gap-4  text-2xl text-heading">
+        <div>
           {isAuthenticated ? (
             <span
               onClick={logoutUser}
@@ -91,9 +91,8 @@ export const FilterTasks = () => {
             </span>
           ) : undefined}
         </div>
-            {todos.length > 0 && (
-        <div className='flex justify-between gap-2'>
-      
+        {todos.length > 0 && (
+          <div className="flex  justify-between">
             <>
               <span
                 onClick={allTasks}
@@ -124,10 +123,8 @@ export const FilterTasks = () => {
                 Clear
               </span>
             </>
-       
-        </div>
-           )}
-    
+          </div>
+        )}
       </div>
 
       {/* Hamburger icon for small screens */}
