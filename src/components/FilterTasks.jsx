@@ -80,9 +80,10 @@ export const FilterTasks = () => {
   return (
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
-      <div className="hidden lg:flex justify-around gap-3 text-center text-2xl text-heading">
-        <div>
-          {todos.length > 0 && (
+      <div className="hidden lg:flex justify-around gap-3  text-2xl text-heading">
+            {todos.length > 0 && (
+        <div className='flex justify-between gap-2'>
+      
             <>
               <span
                 onClick={allTasks}
@@ -113,8 +114,9 @@ export const FilterTasks = () => {
                 Clear
               </span>
             </>
-          )}
+       
         </div>
+           )}
         <div>
           {isAuthenticated ? (
             <span
