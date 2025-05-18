@@ -116,7 +116,7 @@ export const FilterTasks = () => {
         {isAuthenticated ? (
           <span
             onClick={logoutUser}
-            className=" font-buttons  px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-shadow-heading "
+            className=" font-buttons  px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-heading/80 "
           >
             Logout
           </span>
