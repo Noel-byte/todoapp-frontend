@@ -101,7 +101,7 @@ export const FilterTasks = () => {
                 onClick={allTasks}
                 // className=" font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80"
                 className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'all' ? ' bg-button/50' : ''
+                  selected === 'all' ? '  bg-button/10' : ''
                 }`}
               >
                 All Tasks
@@ -110,7 +110,7 @@ export const FilterTasks = () => {
               <span
                 onClick={completedTasks}
                 className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'completed' ? ' bg-button/50' : ''
+                  selected === 'completed' ? '  bg-button/10' : ''
                 }`}
               >
                 Completed
@@ -119,7 +119,7 @@ export const FilterTasks = () => {
               <span
                 onClick={inCompleteTasks}
                 className={`font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80 ${
-                  selected === 'incomplete' ? ' bg-button/50' : ''
+                  selected === 'incomplete' ? '  bg-button/10' : ''
                 }`}
               >
                 Incomplete
