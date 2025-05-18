@@ -80,7 +80,17 @@ export const FilterTasks = () => {
   return (
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
-      <div className="hidden lg:flex justify-around gap-3  text-2xl text-heading bg-black">
+      <div className="hidden lg:flex justify-around gap-4  text-2xl text-heading">
+            <div>
+          {isAuthenticated ? (
+            <span
+              onClick={logoutUser}
+              className=" font-buttons  px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80 "
+            >
+              Logout
+            </span>
+          ) : undefined}
+        </div>
             {todos.length > 0 && (
         <div className='flex justify-between gap-2'>
       
@@ -117,16 +127,7 @@ export const FilterTasks = () => {
        
         </div>
            )}
-        <div className=' self-start text-left bg-red-500'>
-          {isAuthenticated ? (
-            <span
-              onClick={logoutUser}
-              className=" font-buttons  px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80 "
-            >
-              Logout
-            </span>
-          ) : undefined}
-        </div>
+    
       </div>
 
       {/* Hamburger icon for small screens */}
