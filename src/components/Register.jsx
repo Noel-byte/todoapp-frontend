@@ -90,7 +90,7 @@ export const Register = () => {
           <Toaster />
           <button
             type="submit"
-            className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer  hover:bg-button/10"
+            className="bg-button py-2 px-12 font-buttons text-base sm:text-lg md:text-xl lg:text-2xl rounded-lg w-full sm:w-auto text-heading hover:cursor-pointer  hover:bg-button/80"
           >
             {loading?'Please wait..':'Register'}
           </button>
