@@ -85,21 +85,21 @@ export const FilterTasks = () => {
           <>
             <span
               onClick={allTasks}
-              className=" font-buttons   px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-heading/80"
+              className=" font-buttons   px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80"
             >
               All Tasks
             </span>
 
             <span
               onClick={completedTasks}
-              className=" font-buttons  px-4 py-1 rounded w-full hover:cursor-pointer  hover:text-heading/80"
+              className=" font-buttons  px-4 py-1 rounded  hover:cursor-pointer  hover:text-heading/80"
             >
               Completed
             </span>
 
             <span
               onClick={inCompleteTasks}
-              className=" font-buttons   px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-heading/80"
+              className=" font-buttons   px-4 py-1 rounded  hover:cursor-pointer hover:text-heading/80"
             >
               Incomplete
             </span>
@@ -107,7 +107,7 @@ export const FilterTasks = () => {
             <span
               // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
               onClick={() => clearAllTasks(todos[0]?.user)}
-              className=" font-buttons  text-red-800 px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-red-700"
+              className=" font-buttons  text-red-800 px-4 py-1 rounded   hover:cursor-pointer hover:text-red-700"
             >
               Clear
             </span>
@@ -116,7 +116,7 @@ export const FilterTasks = () => {
         {isAuthenticated ? (
           <span
             onClick={logoutUser}
-            className=" font-buttons  px-4 py-1 rounded  w-full hover:cursor-pointer hover:text-heading/80 "
+            className=" font-buttons  px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80 "
           >
             Logout
           </span>
