@@ -26,12 +26,15 @@ export const FilterTasks = () => {
     console.log('all tasks');
     //  load all tasks
     fetchData('all');
+    setMenuOpen(prev=>!prev)
   };
   const completedTasks = () => {
     fetchData('complete');
+    setMenuOpen(prev=>!prev)
   };
   const inCompleteTasks = () => {
     fetchData('incomplete');
+    setMenuOpen(prev=>!prev)
   };
 
   const clearAllTasks = (userid) => {
@@ -54,7 +57,9 @@ export const FilterTasks = () => {
           })
           .catch((_error) => {
             Swal.showValidationMessage('Clearing All the tasks failed');
-          });
+          }).finally(()=>{
+            setMenuOpen(prev=>!prev)
+          })
       }
     });
   };
