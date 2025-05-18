@@ -81,46 +81,50 @@ export const FilterTasks = () => {
     <div className="relative w-3/5">
       {/* Buttons for lg and up */}
       <div className="hidden lg:flex justify-around gap-3 text-center text-2xl text-heading">
-        {todos.length > 0 && (
-          <>
-            <span
-              onClick={allTasks}
-              className=" font-buttons   px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80"
-            >
-              All Tasks
-            </span>
+        <div>
+          {todos.length > 0 && (
+            <>
+              <span
+                onClick={allTasks}
+                className=" font-buttons   px-4 py-1    hover:cursor-pointer hover:text-heading/80"
+              >
+                All Tasks
+              </span>
 
-            <span
-              onClick={completedTasks}
-              className=" font-buttons  px-4 py-1 rounded  hover:cursor-pointer  hover:text-heading/80"
-            >
-              Completed
-            </span>
+              <span
+                onClick={completedTasks}
+                className=" font-buttons  px-4 py-1   hover:cursor-pointer  hover:text-heading/80"
+              >
+                Completed
+              </span>
 
-            <span
-              onClick={inCompleteTasks}
-              className=" font-buttons   px-4 py-1 rounded  hover:cursor-pointer hover:text-heading/80"
-            >
-              Incomplete
-            </span>
+              <span
+                onClick={inCompleteTasks}
+                className=" font-buttons   px-4 py-1   hover:cursor-pointer hover:text-heading/80"
+              >
+                Incomplete
+              </span>
 
+              <span
+                // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
+                onClick={() => clearAllTasks(todos[0]?.user)}
+                className=" font-buttons  text-red-800 px-4 py-1    hover:cursor-pointer hover:text-red-700"
+              >
+                Clear
+              </span>
+            </>
+          )}
+        </div>
+        <div>
+          {isAuthenticated ? (
             <span
-              // className="bg-blue-900 py-2 px-4 rounded-lg text-white hover:cursor-pointer hover:bg-blue-600 w-full"
-              onClick={() => clearAllTasks(todos[0]?.user)}
-              className=" font-buttons  text-red-800 px-4 py-1 rounded   hover:cursor-pointer hover:text-red-700"
+              onClick={logoutUser}
+              className=" font-buttons  px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80 "
             >
-              Clear
+              Logout
             </span>
-          </>
-        )}
-        {isAuthenticated ? (
-          <span
-            onClick={logoutUser}
-            className=" font-buttons  px-4 py-1 rounded   hover:cursor-pointer hover:text-heading/80 "
-          >
-            Logout
-          </span>
-        ) : undefined}
+          ) : undefined}
+        </div>
       </div>
 
       {/* Hamburger icon for small screens */}
