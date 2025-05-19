@@ -44,12 +44,12 @@ export const Register = () => {
 
         <div className=" flex  gap-2 items-center justify-center ">
           <h3 className="font-text text-base sm:text-lg md:text-xl lg:text-2xl ">
-            You have an account
+            Already have an account
           </h3>
           <span>
             <NavLink
               to="/login"
-              className=" text-base sm:text-lg md:text-xl lg:text-3xl font-semibold text-signup font-buttons hover:text-signup/60 underline px-1"
+              className=" text-base sm:text-lg md:text-xl lg:text-3xl  text-signup font-medium hover:no-underline transition underline px-1 hover:text-signup/70"
             >
               SignIn
             </NavLink>
