@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import done from '../assets/done.png';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -12,9 +12,28 @@ export const ListToDo = () => {
   const [editNoteId, setEditNoteId] = useState(null);
   const [editedItemsNote, setEditedItemsNote] = useState({});
   const [checkedItems, setCheckedItems] = useState({});
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const token = localStorage.getItem('token');
   const MySwal = withReactContent(Swal);
   const { todos, fetchData } = useContext(AuthContext);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        setHidden(true); //scrolling down
+      } else {
+        setHidden(false); //scrolling up
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const handleDelete = (id) => {
     MySwal.fire({
@@ -114,7 +133,7 @@ export const ListToDo = () => {
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
+          className={`${hidden?"hidden":"block"} flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
             ${
               todo.completed
                 ? 'bg-green-400 text-darkbrown'

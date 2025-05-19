@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState} from 'react';
 import { ListToDo } from './ListToDo';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
@@ -8,16 +8,21 @@ import { useEffect } from 'react';
 import AuthContext from './AuthContext';
 import { useContext } from 'react';
 import { FilterTasks } from './FilterTasks';
+
+
 const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`
 export const AddToDo = () => {
   const { isAuthenticated, fetchData } = useContext(AuthContext);
+  
   //component memory
   const [todo, setToDo] = useState('');
   // const [todos,setTodos] = useState([])
   const token = localStorage.getItem('token');
 
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     if (isAuthenticated) {
