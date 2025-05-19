@@ -133,6 +133,7 @@ export const TodoItem = ({ todo }) => {
   };
   return (
     <div
+    ref={taskRef}
       key={todo._id}
       className={`${
         isVisible && 'hidden '
