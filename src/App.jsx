@@ -29,6 +29,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [user, setUser] = useState('');
 
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token); //true if token exists
