@@ -23,7 +23,7 @@ export const TodoItem = ({ todo }) => {
     const handleScroll = () => {
       if (taskRef.current) {
         const rect = taskRef.current.getBoundingClientRect();
-        const triggerPoint = window.innerHeight * 0.4; //40% down the screen
+        const triggerPoint = window.innerHeight * 0.2; //40% down the screen
 
         if (rect.top < triggerPoint && rect.bottom > 0) {
           setIsVisible(true);
