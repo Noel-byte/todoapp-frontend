@@ -135,7 +135,7 @@ export const TodoItem = ({ todo }) => {
     <div
       key={todo._id}
       className={`${
-        isVisible ? 'bg-green-100 scale-105' : 'bg-white scale-100'
+        isVisible ? 'hidden' : 'bg-white scale-100'
       } flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
             ${
               todo.completed
