@@ -135,9 +135,9 @@ export const TodoItem = ({ todo }) => {
     <div
     ref={taskRef}
       key={todo._id}
-      className={`${
-        isVisible && 'hidden '
-      } flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
+      className={`transition-all duration-300 ${
+  isVisible ? 'opacity-100 ' : 'opacity-0 pointer-events-none '
+} flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
             ${
               todo.completed
                 ? 'bg-green-400 text-darkbrown'
