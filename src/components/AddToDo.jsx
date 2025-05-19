@@ -70,7 +70,7 @@ export const AddToDo = () => {
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-white px-2 py-2 rounded w-full outline-0 font-text"
+              className="bg-white px-2 py-2 rounded w-full outline-0 font-text first-letter:uppercase"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
             />
