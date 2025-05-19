@@ -14,7 +14,7 @@ const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`
 export const AddToDo = () => {
   const { isAuthenticated, fetchData } = useContext(AuthContext);
-  
+
   //component memory
   const [todo, setToDo] = useState('');
   // const [todos,setTodos] = useState([])
@@ -66,7 +66,7 @@ export const AddToDo = () => {
     <>
       <div className="p-4 sm:p-8  mt-2 w-full  mx-auto text-center fixed top-24 left-0 right-0 z-40">
         <form
-          className="p-4 flex gap-2 justify-center items-baseline  text-royalblue "
+          className="p-4 flex gap-2 justify-center items-baseline  text-royalblue"
           onSubmit={handleSubmit}
         >
           <div className="w-full flex  sm:flex-row items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-2">
@@ -75,14 +75,14 @@ export const AddToDo = () => {
               name="todoname"
               id="todoname"
               placeholder="Enter todo here"
-              className="bg-white px-2 py-2 rounded w-full outline-0 font-text first-letter:uppercase"
+              className="bg-signup px-2 py-2 rounded w-full outline-0 font-text first-letter:uppercase text-lg"
               value={todo}
               onChange={(e) => setToDo(e.target.value)}
             />
           </div>
 
           <button
-            className="bg-button py-2 px-4 rounded-lg sm:w-auto text-heading hover:cursor-pointer hover:bg-button/20"
+            className="bg-button py-2 px-4 rounded-lg sm:w-auto text-heading hover:cursor-pointer hover:bg-button/80"
             type="submit"
           >
             AddToDo
