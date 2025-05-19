@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import { useState, useContext } from 'react';
 import done from '../assets/done.png';
@@ -6,7 +5,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import AuthContext from './AuthContext';
 
-const urlremote = `https://todoapp-backend-900w.onrender.com`
+const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`;
 
 export const ListToDo = () => {
@@ -115,8 +114,12 @@ export const ListToDo = () => {
       {todos.map((todo) => (
         <div
           key={todo._id}
-          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2 border-b-white/10 sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  first-letter:uppercase
-            ${todo.completed ? 'bg-green-400 text-darkbrown' : 'bg-zinc-100 text-royalblue'}`}
+          className={`flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
+            ${
+              todo.completed
+                ? 'bg-green-400 text-darkbrown'
+                : 'bg-zinc-100 text-royalblue'
+            }`}
         >
           {editNoteId === todo._id ? (
             <input
@@ -131,7 +134,9 @@ export const ListToDo = () => {
               className="w-full rounded p-2 bg-stone-500 text-stone-50 outline-0"
             />
           ) : (
-            <span className="break-words w-full sm:w-auto">{todo.text}</span>
+            <p className="break-words w-full sm:w-auto first-letter:uppercase">
+              {todo.text}
+            </p>
           )}
           {!todo.completed ? (
             <div className="flex mt-2 gap-4 justify-around flex-wrap sm:flex-nowrap items-center">
