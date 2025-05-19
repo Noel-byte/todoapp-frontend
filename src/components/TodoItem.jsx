@@ -23,7 +23,7 @@ export const TodoItem = ({ todo }) => {
     const handleScroll = () => {
       if (taskRef.current) {
         const rect = taskRef.current.getBoundingClientRect();
-        const triggerPoint = window.innerHeight * 0.2; //40% down the screen
+        const triggerPoint = window.innerHeight * 0.25; //25% down the screen
 
         if (rect.top < triggerPoint && rect.bottom > 0) {
           setIsVisible(true);
@@ -133,11 +133,11 @@ export const TodoItem = ({ todo }) => {
   };
   return (
     <div
-    ref={taskRef}
+      ref={taskRef}
       key={todo._id}
       className={`transition-all duration-300 ${
-  isVisible ? 'opacity-0 pointer-events-none ':'opacity-100 ' 
-} flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
+        isVisible ? 'opacity-0 pointer-events-none ' : 'opacity-100 '
+      } flex flex-col sm:flex-row justify-between items-start sm:items-center   font-text text-lg sm:text-base mb-1 px-3 py-2  sm:p-4 rounded-lg shadow ml-2 mr-2 sm:space-y-0  
             ${
               todo.completed
                 ? 'bg-green-400 text-darkbrown'
