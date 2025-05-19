@@ -61,7 +61,7 @@ export const AddToDo = () => {
     <>
       <div className="p-4 sm:p-8  mt-2 w-full  mx-auto text-center fixed top-24 left-0 right-0 z-40">
         <form
-          className="p-4 flex gap-2 justify-center items-baseline  text-white "
+          className="p-4 flex gap-2 justify-center items-baseline  text-royalblue "
           onSubmit={handleSubmit}
         >
           <div className="w-full flex  sm:flex-row items-center mt-2 space-y-2 sm:space-y-0 sm:space-x-2">
