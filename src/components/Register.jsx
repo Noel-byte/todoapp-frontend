@@ -39,8 +39,8 @@ export const Register = () => {
           Todo - App
         </h1>
         <div className="bg-gray-200 h-px shadow-lg"></div>
-        <h2 className=" text-base sm:text-2xl md:text-3xl lg:text-4xl font-titles text-heading">
-          Register Here
+        <h2 className=" text-base sm:text-2xl md:text-3xl lg:text-4xl font-titles text-stone-50">
+          Registration
         </h2>
 
         <div className=" flex  gap-2 items-center justify-center ">
@@ -50,7 +50,7 @@ export const Register = () => {
           <span>
             <NavLink
               to="/login"
-              className=" text-base sm:text-lg md:text-xl lg:text-3xl font-semibold text-signup font-buttons hover:text-signup/60"
+              className=" text-base sm:text-lg md:text-xl lg:text-3xl font-semibold text-signup font-buttons hover:text-signup/60 underline px-1"
             >
               SignIn
             </NavLink>
