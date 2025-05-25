@@ -96,7 +96,7 @@ export const FilterTasks = () => {
             </span>
           ) : undefined}
         </div>
-        {todos.length > 0 && (
+        {(todos.length > 0  && todos!==undefined) && (
           <div className="flex  justify-between gap-2">
             <>
               <span
