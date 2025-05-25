@@ -30,7 +30,7 @@ export const FilterTasks = () => {
   const navigate = useNavigate();
 
   const allTasks = () => {
-    console.log('all tasks');
+    // console.log('all tasks');
     setSelected('all')
     //  load all tasks
     fetchData('all');
@@ -48,6 +48,7 @@ export const FilterTasks = () => {
   };
 
   const clearAllTasks = (userid) => {
+    setSelected('all')
     MySwal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to undo this!',
