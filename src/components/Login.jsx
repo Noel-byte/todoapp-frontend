@@ -69,7 +69,7 @@ export const Login = () => {
           <span>
             <NavLink
               to="/register"
-              className=" text-base sm:text-lg md:text-xl lg:text-3xl  text-signup font-medium hover:text-signup/70 underline px-1 hover:no-underline transition"
+              className=" text-base sm:text-lg md:text-xl lg:text-3xl  text-signup font-bold hover:text-signup/70 underline px-1 hover:no-underline transition"
             >
               Sign Up
             </NavLink>
