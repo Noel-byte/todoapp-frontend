@@ -43,7 +43,7 @@ export const Register = () => {
         <Heading title="Todo-App" />
         <div className="bg-gray-200 h-px shadow-lg"></div>
         <h2 className=" text-base sm:text-2xl md:text-3xl lg:text-4xl font-titles text-stone-50">
-          Registration
+          Create new account
         </h2>
 
         <div className=" flex  gap-2 items-center justify-center ">
