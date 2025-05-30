@@ -24,7 +24,8 @@ export const Register = () => {
         email,
         password,
       })
-      .then(() => {
+      .then((response) => {
+        localStorage.setItem('token',response.data.token)
         toast.success('Registration successful');
         toast.loading('You will be automatically Loggedin Please wait...');
         setTimeout(() => {
