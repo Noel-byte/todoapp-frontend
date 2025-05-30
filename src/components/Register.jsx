@@ -26,10 +26,10 @@ export const Register = () => {
       })
       .then(() => {
         toast.success('Registration successful');
-        toast.loading('Redirecting to Login Page Please wait...');
+        toast.loading('You will be automatically Loggedin Please wait...');
         setTimeout(() => {
           toast.dismiss();
-          navigate('/login'); // go to login after registration
+          navigate('/todos'); // go to todos after registration
         }, 3500);
       })
       .catch((err) => {
