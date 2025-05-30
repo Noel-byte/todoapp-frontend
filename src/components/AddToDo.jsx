@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import AuthContext from './AuthContext';
 import { useContext } from 'react';
-import { FilterTasks } from './FilterTasks';
 
 
 const urlremote = `https://todoapp-backend-900w.onrender.com`;
