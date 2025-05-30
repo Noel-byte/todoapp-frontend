@@ -26,7 +26,11 @@ export const AddToDo = () => {
   useEffect(() => {
     if (isAuthenticated) {
         axios
-        .get(`${urlremote}/api/users/profile`)
+        .get(`${urlremote}/api/users/profile`,  {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         .then((res) => setUser(res.data.email))
         .catch((err) => console.log('Error fetching user name:', err));
       fetchData('all');
