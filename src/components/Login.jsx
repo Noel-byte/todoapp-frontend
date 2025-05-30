@@ -31,10 +31,10 @@ export const Login = () => {
         localStorage.setItem('token', response.data.token);
         setIsAuthenticated(true);
         setTodos([]);//clears old user's data
-         axios
-        .get(`${urlremote}/api/users/profile`)
-        .then((res) => setUser(res.data.email))
-        .catch((err) => console.log('Error fetching user name:', err));
+        //  axios
+        // .get(`${urlremote}/api/users/profile`)
+        // .then((res) => setUser(res.data.email))
+        // .catch((err) => console.log('Error fetching user name:', err));
         fetchData('all');
         navigate('/todos'); // redirect to AddTodo page
       })
