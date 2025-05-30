@@ -13,7 +13,7 @@ import { FilterTasks } from './FilterTasks';
 const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`
 export const AddToDo = () => {
-  const { isAuthenticated, fetchData } = useContext(AuthContext);
+  const { isAuthenticated, fetchData,setUser } = useContext(AuthContext);
 
   //component memory
   const [todo, setToDo] = useState('');
@@ -26,6 +26,10 @@ export const AddToDo = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
+        axios
+        .get(`${urlremote}/api/users/profile`)
+        .then((res) => setUser(res.data.email))
+        .catch((err) => console.log('Error fetching user name:', err));
       fetchData('all');
     } else {
       navigate('/login');
