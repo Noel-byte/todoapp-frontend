@@ -50,10 +50,7 @@ function App() {
         },
       });
 
-      axios
-        .get(`${urlremote}/api/users/profile`)
-        .then((res) => setUser(res.data.email))
-        .catch((err) => console.log('Error fetching user name:', err));
+     
 
       setMessage(welcomeRes.data);
       setTodos(todosRes.data);
