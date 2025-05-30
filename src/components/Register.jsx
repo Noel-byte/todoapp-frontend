@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Toaster, toast } from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
 import { Heading } from './Heading';
+import AuthContext from './AuthContext';
 const urlremote = `https://todoapp-backend-900w.onrender.com`;
 // const urllocal = `http://localhost:5000`;
 export const Register = () => {
@@ -13,19 +14,22 @@ export const Register = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { setIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('')
+    setError('');
     await axios
       .post(`${urlremote}/api/users`, {
         email,
         password,
       })
       .then((response) => {
-        localStorage.setItem('token',response.data.token)
+        setIsAuthenticated(true);
+        localStorage.setItem('token', response.data.token);
+
         toast.success('Registration successful');
         toast.loading('You will be automatically Loggedin Please wait...');
         setTimeout(() => {
@@ -35,7 +39,7 @@ export const Register = () => {
       })
       .catch((err) => {
         setError('Username already taken, use a different username');
-        setLoading(false)
+        setLoading(false);
       });
   };
   return (

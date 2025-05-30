@@ -17,7 +17,7 @@ export const AddToDo = () => {
   //component memory
   const [todo, setToDo] = useState('');
   // const [todos,setTodos] = useState([])
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');  //get the token from the localstorage whenever you are hitting for authorization handle
 
   const navigate = useNavigate();
 
